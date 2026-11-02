@@ -11,9 +11,13 @@ Examples
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
 import os
 import sys
 from pathlib import Path
+from uuid import uuid4
 
 from p113.venues import BY_DATASET, DEFAULT_DATASETS, VENUES, check_against_package
 
@@ -45,9 +49,73 @@ def resolve_datasets(names: list[str]) -> list[str]:
     return names
 
 
-def out_path(dataset: str, schema: str, start: str, end: str) -> Path:
+def request_identity(dataset: str, schema: str, start: str, end: str,
+                     symbols: list[str] | tuple[str, ...], *, stype_in: str = "raw_symbol",
+                     limit: int | None = None) -> dict:
+    """Canonical complete query identity; calendar dates alone are insufficient."""
+    def timestamp(value):
+        stamp = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        if stamp.tzinfo is None:
+            stamp = stamp.replace(tzinfo=timezone.utc)
+        return stamp.astimezone(timezone.utc).isoformat()
+    if not symbols or len(set(symbols)) != len(symbols):
+        raise ValueError("Use explicit, nonempty, unique symbols.")
+    result = {"dataset": dataset, "schema": schema, "symbols": sorted(symbols),
+              "start": timestamp(start), "end": timestamp(end), "stype_in": stype_in}
+    if result["start"] >= result["end"]:
+        raise ValueError("Request end must be strictly after start.")
+    if limit is not None:
+        if type(limit) is not int or limit <= 0:
+            raise ValueError("Record limit must be a positive integer.")
+        result["limit"] = limit
+    return result
+
+
+def _request_hash(request: dict) -> str:
+    return hashlib.sha256(json.dumps(request, sort_keys=True).encode()).hexdigest()
+
+
+def _file_hash(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(4 * 1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def out_path(dataset: str, schema: str, start: str, end: str,
+             symbols: list[str] | tuple[str, ...] | None = None, *,
+             stype_in: str = "raw_symbol", limit: int | None = None) -> Path:
+    """Content-bound query path. Main always supplies the requested symbol set."""
+    identity = request_identity(dataset, schema, start, end,
+                                list(symbols) if symbols is not None else ["AAPL", "SPY", "MSFT"],
+                                stype_in=stype_in, limit=limit)
     tag = f"{schema}_{start[:10]}_{end[:10]}".replace(":", "")
-    return DATA / dataset / f"{tag}.dbn.zst"
+    return DATA / dataset / f"{tag}_{_request_hash(identity)[:20]}.dbn.zst"
+
+
+def cache_reusable(path: Path, request: dict) -> bool:
+    """Never infer completeness or request identity from a filename alone."""
+    if not path.exists():
+        return False
+    marker = path.with_name(path.name + ".json")
+    if not marker.is_file():
+        raise ValueError(f"Existing cache has no verified completion receipt: {path}")
+    receipt = json.loads(marker.read_text(encoding="utf-8"))
+    if (receipt.get("request") != request or receipt.get("complete") is not True
+            or receipt.get("file_size_bytes") != path.stat().st_size
+            or receipt.get("content_sha256") != _file_hash(path)):
+        raise ValueError(f"Existing cache request, bytes or completion differs: {path}")
+    return True
+
+
+def _record_complete(path: Path, request: dict) -> None:
+    receipt = {"request": request, "complete": True, "file_size_bytes": path.stat().st_size,
+               "content_sha256": _file_hash(path)}
+    marker = path.with_name(path.name + ".json")
+    temporary = marker.with_name(marker.name + "." + uuid4().hex + ".partial")
+    temporary.write_text(json.dumps(receipt, indent=2, sort_keys=True), encoding="utf-8")
+    temporary.replace(marker)
 
 
 def main(argv=None) -> int:
@@ -59,7 +127,7 @@ def main(argv=None) -> int:
 
     print(f"plan: {a.schema} for {a.symbols}, {a.start} -> {a.end}, {len(datasets)} datasets")
     for d in datasets:
-        print(f"  {d:<13} {BY_DATASET[d].name:<18} -> {out_path(d, a.schema, a.start, a.end)}")
+        print(f"  {d:<13} {BY_DATASET[d].name:<18} -> {out_path(d, a.schema, a.start, a.end, a.symbols)}")
 
     key = os.environ.get("DATABENTO_API_KEY")
     if not key:
@@ -77,7 +145,7 @@ def main(argv=None) -> int:
         if a.schema not in schemas:
             print(f"  skip {d}: schema {a.schema} not offered (has {schemas})")
             continue
-        kw = dict(dataset=d, symbols=a.symbols, schema=a.schema, start=a.start, end=a.end)
+        kw = request_identity(d, a.schema, a.start, a.end, a.symbols)
         cost = client.metadata.get_cost(**kw)
         size = client.metadata.get_billable_size(**kw)
         rows.append((d, cost, size))
@@ -98,15 +166,16 @@ def main(argv=None) -> int:
         return 0
 
     for d, _, _ in rows:
-        path = out_path(d, a.schema, a.start, a.end)
-        if path.exists():
+        request = request_identity(d, a.schema, a.start, a.end, a.symbols)
+        path = out_path(d, a.schema, a.start, a.end, a.symbols)
+        if cache_reusable(path, request):
             print(f"  have {path}, skipping")
             continue
         path.parent.mkdir(parents=True, exist_ok=True)
-        tmp = path.with_suffix(".part")
-        client.timeseries.get_range(dataset=d, symbols=a.symbols, schema=a.schema,
-                                    start=a.start, end=a.end, path=tmp)
+        tmp = path.with_name(path.name + "." + uuid4().hex + ".partial")
+        client.timeseries.get_range(**request, path=tmp)
         tmp.replace(path)
+        _record_complete(path, request)
         print(f"  saved {path} ({path.stat().st_size / 1e6:.1f} MB)")
     return 0
 

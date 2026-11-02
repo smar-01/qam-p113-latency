@@ -1,117 +1,108 @@
 # p113: Exchange latency and market reaction study
 
-Fordham QAM capstone (Fall 2026), client Databento. Question: when one US equity venue
-changes its quote (say Nasdaq), how fast do the other venues (NYSE, Arca, Cboe, IEX, ...)
-follow? Does that lead-lag change in volatile periods?
+Fordham QAM capstone (Fall 2026), client Databento. This project measures how
+quickly one venue's bid or ask reaches another venue's changed price, alongside
+midpoint responses, lead-lag diagnostics and descriptive volatility regimes.
 
-## Setup
+## Numerical and input corrections
 
-```
-py -3.12 -m venv C:\fordham-s4-classes\venvs\p113
-C:\fordham-s4-classes\venvs\p113\Scripts\python -m pip install -r requirements.txt
-```
+The standalone default is **numerical-only**. `analysis_mode.json` records the
+rules used for each run. No external research package is required.
 
-All commands below run from this folder with that venv's `python`.
+- Midpoint event detection and response ratios use native integer bid+ask
+  prices. This removes float-only zero-price-change events and their nearly
+  zero response-ratio denominators. Synthetic dollar quotes are quantized on
+  the nanodollar lattice before averaging.
+- Lead-lag increments are summed in fixed 10-microsecond bins anchored at the
+  UTC epoch before energy normalization. The result is a bounded, uncentered
+  normalized cross-product, not a Pearson correlation. Zero energy is undefined.
+- DBN loading retains original integer prices, flags and raw size/state updates.
+  Each invocation must use one aligned request interval across its input files.
+- Volatility is calculated separately on each clock from raw states, retaining
+  size-only freshness updates. It requires a full 300-return warmup and explicit
+  supported observations. Unavailable regimes remain `unknown`.
+- Download caches include the full symbol set and exact intraday start/end in
+  their identity. Reuse requires a successful completion receipt, matching byte
+  count and SHA-256. An existing unverified or changed cache is rejected.
 
-## Run it now, without a key
+**The bid/ask reaction-latency algorithm and its original event selection remain
+unchanged.** Its matched medians are conditional on matching within the chosen
+horizon. The volatility freshness rules do not filter reaction-latency events;
+this patch does not supply a full flags/ties/freshness-aware latency engine.
 
-```
-python -m pytest              # synthetic venues with known lags; checks the code recovers them
-python analyze.py --synthetic # full pipeline on synthetic data -> outputs/synthetic/
-```
+## Setup and offline verification
 
-## First real pull
+Use Python 3.12 and the existing pinned requirements:
 
-The key is read only from the env var `DATABENTO_API_KEY`. It is never written to disk.
-
-```
-$env:DATABENTO_API_KEY = "<your key>"     # PowerShell, this window only
-python pull.py --cost-only                # prices the pull; downloads nothing
-python pull.py --max-cost 0 --yes         # downloads only if the quote is <= $0
-python analyze.py                         # -> outputs/real/
-```
-
-Defaults: AAPL, SPY, MSFT; MBP-1; 2026-10-15 (UTC day); six venues (XNAS.ITCH,
-XNYS.PILLAR, ARCX.PILLAR, BATS.PITCH, EDGX.PITCH, IEXG.TOPS). Change with `--symbols`,
-`--start`, `--end`, `--datasets` (`--datasets all` = all 15 venues in `p113/venues.py`).
-Pick a day with a big move in a liquid name (Eric's advice on the kickoff call).
-`pull.py` first checks each dataset offers the schema (`metadata.list_schemas`), then prices
-every dataset (`metadata.get_cost`, `get_billable_size`), and only then downloads. It refuses
-to download above `--max-cost` (default $0). Files land in `data/raw/<dataset>/` as
-`.dbn.zst` (gitignored). Existing files are not downloaded again.
-
-## What it measures
-
-- **Reaction latency.** For each change in a leader venue's best bid (or ask) to price P,
-  the time until the follower's best bid (ask) reaches P. If the follower is already at P
-  when the leader moves, it was not behind and the event is left out ("already"). No match
-  within `--horizon-ms` (default 10 ms) is "censored".
-- **Lead-lag.** Cross-correlation of the two venues' mid changes at lags from -2 ms to
-  +2 ms in 10 µs steps, computed on raw event times (no fixed grid). Positive lag = the second
-  venue moves after the first. LLR > 1 means the first venue leads.
-- **Leadership share** (information-share-style). For venue i: matched events where i moved
-  first, divided by all matched events involving i. 1 = always first, 0.5 = even, 0 = always
-  follows. It is a counting measure, not Hasbrouck's information share.
-- **Event study.** After each leader mid change, the share of that move each venue has
-  absorbed at offsets from -100 µs to 10 ms. 1.0 = caught up.
-- **Calm vs volatile.** Cross-venue median mid every second; 5-minute trailing realized vol;
-  at or above the day's 75th percentile (`--vol-q`) = volatile. Every latency event is tagged.
-
-## Clocks
-
-Everything runs twice, once per clock:
-- `ts_recv`: Databento's capture time. One clock for all venues, but it includes each feed's
-  path to Databento's capture point, so a venue farther away looks slower.
-- `ts_event`: each exchange's own matching-engine time. Closer to when it happened, but it
-  compares different exchanges' clocks, so small differences (single µs) are not trustworthy.
-
-## Outputs (`outputs/<synthetic|real>/`, one set per clock)
-
-| file | what it is |
-|---|---|
-| `heatmap_<clock>.png`, `latency_matrix_<clock>.csv` | median latency, leader rows x follower columns (µs); blank = fewer than 20 matches |
-| `distributions_<leader>_<clock>.png` | latency histograms (log µs) after each leader change, one line per follower |
-| `latency_summary_<clock>.csv` | per pair: events, events where the follower was behind, matches, match rate, p10/median/p90/mean µs |
-| `latency_summary_by_regime_<clock>.csv`, `regimes_<leader>_<clock>.png` | the same split calm vs volatile |
-| `leadlag_<leader>_<clock>.png`, `leadlag_curves_<clock>.csv`, `leadlag_summary_<clock>.csv` | cross-correlation curves; peak lag, peak correlation, LLR per pair |
-| `leadership_share_<clock>.csv` | one number per venue, see above |
-| `event_study_<leader>_<symbol>_<clock>.png/.csv` | share of the leader's move absorbed over time |
-| `latency_events_<clock>.parquet` | every leader event with its follower result and regime |
-| `realized_vol.csv` | the 1-second realized vol series and regime labels |
-
-## Assumptions and limits
-
-- MBP-1 (top of book per venue). The client prefers MBO for the exact instant an order
-  lands; `--schema mbo` will pull it, but the analysis reads MBP-1 only so far.
-- Only price changes count; size-only updates are dropped.
-- Odd lots, locked/crossed quotes and auction periods are not treated specially yet.
-- The synthetic tests prove the measurement recovers a known lag; they say nothing about
-  real venue behavior.
-
-## Layout
-
-```
-pull.py        cost check + download (needs DATABENTO_API_KEY)
-analyze.py     everything else
-p113/venues.py     venue <-> Databento dataset table, checked against the installed package
-p113/load.py       DBN -> one tidy quote table
-p113/latency.py    reaction latency, summaries, matrix, leadership share
-p113/leadlag.py    cross-correlation, LLR, event study
-p113/regimes.py    realized vol and calm/volatile labels
-p113/figures.py    plots
-p113/synthetic.py  known-lag test data
-tests/         pytest
+```text
+python -m venv .venv
+# Activate .venv using your platform's normal activation command.
+python -m pip install -r requirements.txt
+python -m pytest
+python analyze.py --synthetic --clock both
+python analyze.py --synthetic --clock both --event-support complete --out outputs/synthetic_complete
 ```
 
-## Study days
+Both synthetic commands run without an API key or network requests. The
+`--numerical-only` flag explicitly acknowledges the default mode; it does not
+change its rules. Tests include integer-midpoint counterexamples, an independent
+dense-grid normalization check, cache identity/integrity, known lags, unsupported
+endpoints and raw-state volatility support.
 
-Results are in `results/` (start with `results/RESULTS.md`). Raw files and event-level parquet stay out of git.
-To rebuild a day:
+## Midpoint-response support policy
 
+`--event-support legacy` is the default. It retains the starter's per-offset
+cohorts and last-state carrying so arithmetic fixes can be assessed separately
+from observation-policy changes.
+
+`--event-support complete` uses raw rows, a strict prior baseline and one
+continuously observed source/follower cohort across all requested offsets. It
+excludes unsupported request endpoints. It does not resolve conflicting tied
+states, add a quote-age rule to midpoint responses or qualify bid/ask latency.
+The complete cohort is fixed separately for each follower, so compare the
+reported `n` counts as well as ratios. Signed response ratios can legitimately
+be negative or exceed one and are not clipped.
+
+## Real-data acquisition and analysis
+
+The API key is read only from `DATABENTO_API_KEY`; it is never written to disk.
+Without a key, `pull.py` stops before constructing an API client or writing data.
+First price a request, then choose an explicit cost ceiling:
+
+```text
+python pull.py --cost-only
+python pull.py --max-cost 0 --yes
+python analyze.py --data data/raw --clock both --out outputs/real
 ```
-python pull.py --start 2026-10-15 --end 2026-10-16 --max-cost 10 --yes
-# move data\raw\* into data\2026-10-15\
-python analyze.py --data data\2026-10-15 --out outputs\2026-10-15
-python checks\independent_check.py 2026-10-15
-python checks\rth_regimes.py 2026-08-04 2026-10-13 2026-10-15
-```
+
+Defaults are AAPL, SPY and MSFT; MBP-1; October 15, 2026 (UTC day); Nasdaq,
+NYSE, Arca, Cboe BZX, Cboe EDGX and IEX. Use `--symbols`, `--start`, `--end` and
+`--datasets` to select exact requests. `--datasets all` selects the venue table.
+The cost gate remains in place. `--schema mbo` can retrieve MBO, but this
+analysis reads MBP-1 only.
+
+Analyze each aligned date/window separately. Mixing requests with different
+start/end boundaries is rejected. Preserve the original DBN metadata and cache
+receipts; changing a filename is not evidence of matching request identity.
+
+## Outputs and interpretation
+
+Each output directory contains `analysis_mode.json`. Each selected clock gets
+its own `latency_summary_*`, `latency_matrix_*`, `leadership_share_*`,
+`latency_summary_by_regime_*`, `realized_vol_*`, `leadlag_*`, `event_study_*` and
+`latency_events_*.parquet` files. Figures label the corrected cross-product and
+signed response ratio explicitly. In particular, volatility now uses
+`realized_vol_ts_recv.csv` and `realized_vol_ts_event.csv` rather than one shared
+receive-clock regime file.
+
+`ts_recv` includes feed transport to the capture point; `ts_event` compares
+exchanges' own clocks. Neither is pure propagation time. Counting leadership is
+not Hasbrouck information share, and matching does not identify causality.
+Volatility labels are retrospective; these outputs do not establish forecasting
+skill or statistical significance. Quote-quality gaps, stale observations,
+auctions and odd-lot conventions still require a separately specified quality
+study. Numerical corrections alone do not solve these measurement issues.
+
+Existing `results/` documents describe earlier runs; they are not automatically
+regenerated or validated by this source patch. Re-run the appropriate saved
+input windows with explicit policies before replacing published figures.

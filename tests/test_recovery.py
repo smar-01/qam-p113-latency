@@ -95,9 +95,12 @@ def test_event_study_catch_up(quotes):
     assert es.loc[("BATS", 300), "share"] == pytest.approx(1, abs=0.02)
 
 
-def test_regime_split_recovers_slower_volatile_lag():
+def test_legacy_regime_split_recovers_slower_volatile_lag():
     q = bbo_changes(make_quotes(seconds=3_600, volatile_lag_mult=2.0, lags_ns={"XNYS": 50 * US}))
-    rv = regimes.label(regimes.realized_vol(q), q=0.5)
+    # This fixture is price-compressed, so explicitly test the starter's
+    # no-freshness/partial-warmup sensitivity rather than claiming new raw-state
+    # quality coverage. Strict raw-input requirements have separate tests.
+    rv = regimes.label(regimes.realized_vol(q, max_age_ms=None, require_full_window=False), q=0.5)
     lat = latency.pair_latencies(q, clock="ts_event")
     lat["regime"] = regimes.tag(lat, rv)
     s = latency.summarize(lat, by=("leader", "follower", "regime")).set_index(["leader", "follower", "regime"])
