@@ -1,0 +1,13 @@
+day,clock,cut,calm_us,volatile_us,pairs_slower_in_volatile,match_calm,match_volatile
+2026-08-04,ts_recv,all regular hours,347.1,424.7,28/30,0.28,0.299
+2026-08-04,ts_recv,excl first/last 5 min,346.4,398.8,27/30,0.28,0.299
+2026-08-04,ts_event,all regular hours,231.2,262.6,28/30,0.283,0.302
+2026-08-04,ts_event,excl first/last 5 min,231.0,259.6,27/30,0.283,0.301
+2026-10-13,ts_recv,all regular hours,388.4,450.9,29/30,0.233,0.263
+2026-10-13,ts_recv,excl first/last 5 min,388.4,451.7,28/30,0.233,0.259
+2026-10-13,ts_event,all regular hours,320.8,359.7,30/30,0.234,0.265
+2026-10-13,ts_event,excl first/last 5 min,320.9,377.5,28/30,0.234,0.26
+2026-10-15,ts_recv,all regular hours,461.5,530.3,29/30,0.295,0.308
+2026-10-15,ts_recv,excl first/last 5 min,460.0,539.9,30/30,0.295,0.308
+2026-10-15,ts_event,all regular hours,347.1,395.5,30/30,0.296,0.309
+2026-10-15,ts_event,excl first/last 5 min,346.4,396.4,30/30,0.296,0.308
