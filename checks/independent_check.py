@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 DAY = sys.argv[1] if len(sys.argv) > 1 else "2026-10-15"
-ROOT = Path(__file__).resolve().parent.parent / "data" / "raw"
+ROOT = Path(__file__).resolve().parent.parent / "data" / DAY
 HORIZON = 10_000_000
 
 

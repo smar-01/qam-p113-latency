@@ -102,3 +102,16 @@ p113/figures.py    plots
 p113/synthetic.py  known-lag test data
 tests/         pytest
 ```
+
+## Study days
+
+Results are in `results/` (start with `results/RESULTS.md`). Raw files and event-level parquet stay out of git.
+To rebuild a day:
+
+```
+python pull.py --start 2026-10-15 --end 2026-10-16 --max-cost 10 --yes
+# move data\raw\* into data\2026-10-15\
+python analyze.py --data data\2026-10-15 --out outputs\2026-10-15
+python checks\independent_check.py 2026-10-15
+python checks\rth_regimes.py 2026-08-04 2026-10-13 2026-10-15
+```
