@@ -1,0 +1,75 @@
+{
+  "derived_snapshot": true,
+  "note": "Sanitized field-selected snapshots, not original audit files. Local absolute paths, raw source lists and giant output registries are omitted. Original file hashes are preserved below and in provenance.json.",
+  "audits": {
+    "teammate_corrections": {
+      "source_path": "out/team_code_corrections/result_audit.json",
+      "source_sha256": "83c2838df8e12df4a0912fd7e81e8693de38660332b5f6eccdb0248e788bc416",
+      "status": "passed",
+      "raw_sources_freshly_hashed": 50,
+      "raw_source_requests": 50,
+      "raw_records_reconciled": 4988927,
+      "midpoint_cases": 300,
+      "floating_phantom_midpoint_events": 122,
+      "reaction_pair_cases": 1200,
+      "reaction_numerical_negative_control": true,
+      "leadlag_pair_tasks": 600,
+      "leadlag_peak_lag_changed_tasks": 195,
+      "shared_quote_inputs_unmutated": true,
+      "scope": "Independent same-input correction grids, hashes and arithmetic; no raw re-matching by this final auditor."
+    },
+    "native_quote_latency": {
+      "source_path": "out/latency/result_audit.json",
+      "source_sha256": "5491f679c4888682891bd865b94ecb32dba7502da89ff7363fe278674baf39ef",
+      "status": "passed",
+      "raw_sources_freshly_hashed": 370,
+      "raw_records_reconciled": 69742145,
+      "independent_event_cases": 345974,
+      "independent_matching_mismatches": 0,
+      "count_conservation": true,
+      "conditional_mean_reconstructed": true,
+      "restricted_wait_reconstructed": true,
+      "limitations": [
+        "Independent event matching checks sample each directed pair/side; they do not re-match every raw event.",
+        "Date-block intervals are marginal exploratory estimates; they are not multiplicity-adjusted or causal effects.",
+        "Twenty sessions contain roughly four nonoverlapping five-session blocks; interval precision remains approximate."
+      ]
+    },
+    "multi_year_events": {
+      "source_path": "out/aapl_multi_event/result_audit.json",
+      "source_sha256": "ee5be9adaa04051278836624c3ca341317dd8507ab58dd010f983ea4062bcf10",
+      "status": "passed",
+      "passed": true,
+      "event_anchors": 28,
+      "event_bundles": 18,
+      "control_trials": 140,
+      "source_windows": 104,
+      "raw_requests": 640,
+      "raw_records": 33338763,
+      "raw_files_freshly_hashed": 640,
+      "independent_matching_cases": 82243,
+      "independent_matching_mismatches": 0,
+      "independent_control_draw_reconstructed": true,
+      "independent_metric_aggregation_reconstructed": true,
+      "independent_statistics_reconstructed": true,
+      "scope": "Local source-byte/metadata/receipt, availability quarantine, frozen-draw, checkpoint, full-grid, arithmetic and descriptive-statistics audit; no API or credential access and no second full native DBN reconstruction."
+    },
+    "stationarity": {
+      "source_path": "out/aapl_stationarity/result_audit.json",
+      "source_sha256": "3d3e9d90dc87326bf7b9e652867fdb3174de7aa3944df7d7ba78d2bc733d1179",
+      "status": "passed",
+      "passed": true,
+      "diagnostic_windows": 8064,
+      "unique_series": 3631,
+      "unique_test_pairs": 10893,
+      "tested_pairs": 954,
+      "skipped_pairs": 9939,
+      "global_adf_holm_family_size": 954,
+      "all_unique_test_pairs_independently_recomputed": true,
+      "raw_files_freshly_hashed": 640,
+      "independent_selection_windows": 192,
+      "independent_selection_mismatches": 0,
+      "scope": "All persisted run identities, paired ADF/KPSS numeric results/warnings/classifications, global Holm values and summaries; all input/output/source hashes and existing source-study audit binding; independent native selection only for the named source-group sample."
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "derived_sanitized_snapshot": true,
+  "scope": "Historical independent audits of the original runs; importing this bundle does not repeat those audits. Original source hashes are in provenance.json.",
+  "fresh_confirmation": {
+    "status": "passed",
+    "created_utc": "2026-10-27T00:44:43.563149+00:00",
+    "raw_requests_checked": 320,
+    "raw_records_checked": 64753218,
+    "raw_action_t_records": 2941492,
+    "normalized_valid_trade_shares": 136218897.0,
+    "invalid_trade_records": 0,
+    "ambiguous_trade_timestamp_groups": 0,
+    "candle_task_days_checked": 960,
+    "maximum_share_conservation_error": 0.0,
+    "training_thresholds_checked": 24,
+    "held_out_task_days_checked": 480,
+    "zero_row_task_days": 0,
+    "complete_held_out_dates": 20,
+    "independent_bootstrap_intervals_checked": 8,
+    "paired_held_out_rows": 594354,
+    "summary_status": "ok"
+  },
+  "mbo_sirs": {
+    "created_utc": "2026-10-27T04:18:42.299125+00:00",
+    "passed": true,
+    "mode": "independent_bin_predictions",
+    "full_probability_audit": true,
+    "arithmetic_verified": true,
+    "scientifically_eligible": true,
+    "errors": [],
+    "verified_component_tests": 387,
+    "raw_requests": 510,
+    "raw_rows": 532658530,
+    "replay_tasks": 240,
+    "mbo_rows_replayed": 527567665,
+    "all_models_converged": true,
+    "fitted_model_count": 32,
+    "nonconverged_models": [],
+    "panel_tasks": 240,
+    "held_out_task_model_rows": 640,
+    "max_independent_task_score_absolute_difference": {
+      "log_loss_sum": 3.637978807091713e-12,
+      "brier_sum": 9.094947017729282e-13
+    },
+    "numerical_guard_rows": 0,
+    "scientific_ineligibility_reasons": [],
+    "supports_incremental_prediction": true,
+    "finished_utc": "2026-10-27T04:20:43.701675+00:00"
+  }
+}

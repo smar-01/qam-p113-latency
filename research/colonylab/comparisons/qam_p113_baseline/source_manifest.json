@@ -1,0 +1,40 @@
+{
+  "repository": "https://github.com/smar-01/qam-p113-latency",
+  "commit": "62d6dcd8af9ecd7136096dbcce3eb40371987422",
+  "scope": "Exact historical source subset used by the original-versus-corrected offline experiment; not a runnable full checkout.",
+  "files": [
+    {
+      "path": "p113/load.py",
+      "sha256": "b88818dc0a4de6f2bc5c8eb5f337563aea7b505ed744dec6b28c5a3179806549"
+    },
+    {
+      "path": "p113/leadlag.py",
+      "sha256": "71295a30b69dd24385722b6acbc1dbe21de542763dd12ee515cf6df2c45e0ab5"
+    },
+    {
+      "path": "p113/latency.py",
+      "sha256": "3194076cbd68168ae4ea5fc51f9ad20069755bd3d02f78592f8ddff61c47c2dc"
+    },
+    {
+      "path": "p113/regimes.py",
+      "sha256": "c629c01e5ea90cefcc2c6a69243d74fd06dcd71a48ba6b9accd9c4b60b270cd2"
+    },
+    {
+      "path": "p113/venues.py",
+      "sha256": "dd1fc11946e69b5cd0a69fea8dc86301d72838564f42a59f9dd1af9ed5e1b318"
+    },
+    {
+      "path": "p113/__init__.py",
+      "sha256": "79f35029fb368d0537e2c2cdef618613bd5ef03085674626e75bf9ddbfdb3d3d"
+    },
+    {
+      "path": "analyze.py",
+      "sha256": "19a96a440a292fa1f1d653a1d50c555d7a9b5600b4947e6281c5fa8e8c16b351"
+    },
+    {
+      "path": "pull.py",
+      "sha256": "11deea5b3a1a7a6d1eee44a41d3d32969c40198e00903d12243c21564f243557"
+    }
+  ],
+  "line_endings": "Canonical LF Git blob bytes; the historical local audit used CRLF checkout bytes. Executable source text is identical after newline normalization."
+}

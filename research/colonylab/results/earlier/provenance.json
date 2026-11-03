@@ -1,0 +1,310 @@
+{
+  "version": 1,
+  "created_utc": "2026-11-03T00:20:46.774402+00:00",
+  "derived_publication_snapshot": true,
+  "source_artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "80537acbd054b913b597cac117b9b3b8cbf3696485c41882a3b29cd72b7d5275",
+      "bytes": 76983
+    },
+    {
+      "path": "out/fresh_confirmation/audit.json",
+      "sha256": "0c24aa744b27aa7689d8f42997bf007f296e10b4e29af2211d509a852557af03",
+      "bytes": 1694
+    },
+    {
+      "path": "out/fresh_confirmation/confirmation_by_day.png",
+      "sha256": "7df10e222ea22a04548d9441d4a2892120642e96bbe785ed4f9d6f7ce3c544f4",
+      "bytes": 132486
+    },
+    {
+      "path": "out/fresh_confirmation/confirmation_summary.json",
+      "sha256": "2b35d754fd7aed87ddabc06fd075f6e8d2a5cbbaa201eb74f0dd9ae781f296e6",
+      "bytes": 31768
+    },
+    {
+      "path": "out/fresh_confirmation/daily_scores.csv",
+      "sha256": "719e4ad25f8199ac53a66dc447a5a375992960f2f1d507e51ca83e9ee6d17364",
+      "bytes": 2006
+    },
+    {
+      "path": "out/mbo_sir/daily_scores.csv",
+      "sha256": "d15c185bb99d8787df437988873462e5cddd51c029c238a0b9d731c648f99c73",
+      "bytes": 6827
+    },
+    {
+      "path": "out/mbo_sir/network_beta.png",
+      "sha256": "5243e5b08107c6ee0b30960943fc6220374fa59dd37b154961d061d74e50cc26",
+      "bytes": 315409
+    },
+    {
+      "path": "out/mbo_sir/result_audit.json",
+      "sha256": "e72f794de142eea13df0c7ed50fdda9a5b994234f69070786fe752893687a0b0",
+      "bytes": 7265
+    },
+    {
+      "path": "out/mbo_sir/sirs_coverage.png",
+      "sha256": "3049579afbe8b3f1c26e4b68569432e91afd90924224156d77208174f195093a",
+      "bytes": 123741
+    },
+    {
+      "path": "out/mbo_sir/sirs_model_comparison.png",
+      "sha256": "9d2940a8279768a9e4da17514f4467717dcc49990a5863839613bef6dd66d288",
+      "bytes": 127234
+    },
+    {
+      "path": "out/mbo_sir/sirs_task_comparison.png",
+      "sha256": "e388077b67e366ed8fa85bf618a261a8c983ad89765b389b19a7b6fe3f442072",
+      "bytes": 60907
+    },
+    {
+      "path": "out/mbo_sir/summary.json",
+      "sha256": "4e81118e88e72ce87cb9e5214e839ad5d77789bf80a6ed0287b93bcae6751402",
+      "bytes": 30346
+    },
+    {
+      "path": "out/pilot/response_curve.png",
+      "sha256": "e16e7d3f43a0bf0f2ad805cff95b3954ec122a649d9243032dbe2aac14c072d9",
+      "bytes": 114133
+    },
+    {
+      "path": "out/pilot/run_summary.json",
+      "sha256": "150d4f86a62089102e7f6496349fa8c7965f14d67d062e4ad0ef5b32dcf35648",
+      "bytes": 6404
+    },
+    {
+      "path": "out/volume_comparison/volume_comparison_summary.json",
+      "sha256": "7568a4f37f73e63ac559d91fe1ea9d0dfd500fdc59e0214f277d16628a51717a",
+      "bytes": 104072
+    },
+    {
+      "path": "out/volume_comparison/volume_vs_time.png",
+      "sha256": "684b88ef075bdbedce677c68d62a9b930aac4cab08f6ff3382cdf3a7af84fd51",
+      "bytes": 135743
+    },
+    {
+      "path": "out/wide_network/network_summary.json",
+      "sha256": "e93ef8d1fec29d9a26b71e45c1546dedee67ad9ac962fee6a7ab0a8c984680d1",
+      "bytes": 19631
+    },
+    {
+      "path": "out/wide_network/prediction_comparison.png",
+      "sha256": "413b24262a32c2797116ade3ed0b87875cc48f357839b1073549028d3715b364",
+      "bytes": 140805
+    },
+    {
+      "path": "out/wide_network/prediction_scores_by_day.csv",
+      "sha256": "0faf332676860aaeb0fb708f9bb62612d8f794f9d4bbfbb9a758cd3d0a867eea",
+      "bytes": 1774
+    },
+    {
+      "path": "out/wide_network/prediction_summary.json",
+      "sha256": "24a6480dba3678ee7395d1f171d5020964cbee52c714c71f770aea8136215c5b",
+      "bytes": 141098
+    }
+  ],
+  "bundle_artifacts": [
+    {
+      "path": "tables/colony_prototype.json",
+      "sha256": "2451675d89ab3594f25361831a4be5fc93e95f4df02d6e4950b612fc0c2acdce",
+      "bytes": 5577,
+      "source_artifacts": [
+        "out/pilot/run_summary.json"
+      ],
+      "derivation": "Selected aggregate original summary fields or model-level score/comparison rows; raw/individual observations, fitted parameter blobs and local paths omitted."
+    },
+    {
+      "path": "tables/network_replication.json",
+      "sha256": "c8ce80db8e17f793394be3116e1d99a6c7e2d212ce9aeb02aa95399ab68c6b1c",
+      "bytes": 3081,
+      "source_artifacts": [
+        "out/wide_network/prediction_summary.json"
+      ],
+      "derivation": "Selected aggregate original summary fields or model-level score/comparison rows; raw/individual observations, fitted parameter blobs and local paths omitted."
+    },
+    {
+      "path": "tables/shock_associations.json",
+      "sha256": "4e9e23095389d013ca74b9a43ecabbfdf7902b7398ff8c5df0a6fa832f16ee32",
+      "bytes": 2577,
+      "source_artifacts": [
+        "out/wide_network/network_summary.json"
+      ],
+      "derivation": "Selected aggregate original summary fields or model-level score/comparison rows; raw/individual observations, fitted parameter blobs and local paths omitted."
+    },
+    {
+      "path": "tables/volume_exploration.json",
+      "sha256": "b4b5b34dbaa71b08239ee20a5a4c8295c6940d7f1f22ff698065549dd7697b14",
+      "bytes": 2983,
+      "source_artifacts": [
+        "out/volume_comparison/volume_comparison_summary.json"
+      ],
+      "derivation": "Selected aggregate original summary fields or model-level score/comparison rows; raw/individual observations, fitted parameter blobs and local paths omitted."
+    },
+    {
+      "path": "tables/fresh_volume_confirmation.json",
+      "sha256": "16c07508e27ef444a40bcb270091e8174e130d3e8c73c41bad1ed5aa13170479",
+      "bytes": 4209,
+      "source_artifacts": [
+        "out/fresh_confirmation/confirmation_summary.json"
+      ],
+      "derivation": "Selected aggregate original summary fields or model-level score/comparison rows; raw/individual observations, fitted parameter blobs and local paths omitted."
+    },
+    {
+      "path": "tables/sirs_summary.json",
+      "sha256": "cdaa62189a854e218d6e8136c98e49c10b2d546cb3910d3145d4922005122750",
+      "bytes": 14391,
+      "source_artifacts": [
+        "out/mbo_sir/summary.json"
+      ],
+      "derivation": "Selected aggregate original summary fields or model-level score/comparison rows; raw/individual observations, fitted parameter blobs and local paths omitted."
+    },
+    {
+      "path": "tables/sirs_model_scores.csv",
+      "sha256": "b6d3b03246dc00a1a7b490788da9993b9d7ac7ef47f8cfb1b5144ccc0d476d1a",
+      "bytes": 513,
+      "source_artifacts": [
+        "out/mbo_sir/summary.json"
+      ],
+      "derivation": "Selected aggregate original summary fields or model-level score/comparison rows; raw/individual observations, fitted parameter blobs and local paths omitted."
+    },
+    {
+      "path": "tables/sirs_comparisons.csv",
+      "sha256": "a5e51eaf3a456fdb78aa3f8b481f08ab4cee0c7fbf6941dfbd08a28615a38fa5",
+      "bytes": 540,
+      "source_artifacts": [
+        "out/mbo_sir/summary.json"
+      ],
+      "derivation": "Selected aggregate original summary fields or model-level score/comparison rows; raw/individual observations, fitted parameter blobs and local paths omitted."
+    },
+    {
+      "path": "tables/sirs_daily_scores.csv",
+      "sha256": "bbbebbbcb984b73b676dcdcd3c35998ab43de6c788c87dc28fd8f9042afbb72c",
+      "bytes": 6746,
+      "source_artifacts": [
+        "out/mbo_sir/daily_scores.csv"
+      ],
+      "derivation": "Original date-level aggregate score table with canonical LF; row values unchanged."
+    },
+    {
+      "path": "tables/network_daily_scores.csv",
+      "sha256": "e5b1ee1dcdbf894af19116f4f3ae455a418e30e4daab73fb4b508baa66aae17e",
+      "bytes": 1758,
+      "source_artifacts": [
+        "out/wide_network/prediction_scores_by_day.csv"
+      ],
+      "derivation": "Original date-level aggregate score table with canonical LF; row values unchanged."
+    },
+    {
+      "path": "tables/fresh_volume_daily_scores.csv",
+      "sha256": "1ef0081e054f277afbd3973e019dfdfa4e834b7a7fd6e1f3b07105a3125391c3",
+      "bytes": 1985,
+      "source_artifacts": [
+        "out/fresh_confirmation/daily_scores.csv"
+      ],
+      "derivation": "Original date-level aggregate score table with canonical LF; row values unchanged."
+    },
+    {
+      "path": "audits.json",
+      "sha256": "331eac074e01cd05aae9fda8ba33e20d3ef4d0f245de53b7a5846a547f172730",
+      "bytes": 1778,
+      "source_artifacts": [
+        "out/fresh_confirmation/audit.json",
+        "out/mbo_sir/result_audit.json"
+      ],
+      "derivation": "Selected sanitized historical audit counters and status; paths and parameter/test manifests omitted."
+    },
+    {
+      "path": "figures/colony_response.png",
+      "sha256": "e16e7d3f43a0bf0f2ad805cff95b3954ec122a649d9243032dbe2aac14c072d9",
+      "bytes": 114133,
+      "source_artifacts": [
+        "out/pilot/response_curve.png"
+      ],
+      "derivation": "Original aggregate scientific figure, byte-identical."
+    },
+    {
+      "path": "figures/network_prediction.png",
+      "sha256": "413b24262a32c2797116ade3ed0b87875cc48f357839b1073549028d3715b364",
+      "bytes": 140805,
+      "source_artifacts": [
+        "out/wide_network/prediction_comparison.png"
+      ],
+      "derivation": "Original aggregate scientific figure, byte-identical."
+    },
+    {
+      "path": "figures/volume_vs_time.png",
+      "sha256": "684b88ef075bdbedce677c68d62a9b930aac4cab08f6ff3382cdf3a7af84fd51",
+      "bytes": 135743,
+      "source_artifacts": [
+        "out/volume_comparison/volume_vs_time.png"
+      ],
+      "derivation": "Original aggregate scientific figure, byte-identical."
+    },
+    {
+      "path": "figures/fresh_volume_confirmation.png",
+      "sha256": "7df10e222ea22a04548d9441d4a2892120642e96bbe785ed4f9d6f7ce3c544f4",
+      "bytes": 132486,
+      "source_artifacts": [
+        "out/fresh_confirmation/confirmation_by_day.png"
+      ],
+      "derivation": "Original aggregate scientific figure, byte-identical."
+    },
+    {
+      "path": "figures/sirs_network.png",
+      "sha256": "5243e5b08107c6ee0b30960943fc6220374fa59dd37b154961d061d74e50cc26",
+      "bytes": 315409,
+      "source_artifacts": [
+        "out/mbo_sir/network_beta.png"
+      ],
+      "derivation": "Original aggregate scientific figure, byte-identical."
+    },
+    {
+      "path": "figures/sirs_model_comparison.png",
+      "sha256": "9d2940a8279768a9e4da17514f4467717dcc49990a5863839613bef6dd66d288",
+      "bytes": 127234,
+      "source_artifacts": [
+        "out/mbo_sir/sirs_model_comparison.png"
+      ],
+      "derivation": "Original aggregate scientific figure, byte-identical."
+    },
+    {
+      "path": "figures/sirs_coverage.png",
+      "sha256": "3049579afbe8b3f1c26e4b68569432e91afd90924224156d77208174f195093a",
+      "bytes": 123741,
+      "source_artifacts": [
+        "out/mbo_sir/sirs_coverage.png"
+      ],
+      "derivation": "Original aggregate scientific figure, byte-identical."
+    },
+    {
+      "path": "figures/sirs_task_comparison.png",
+      "sha256": "e388077b67e366ed8fa85bf618a261a8c983ad89765b389b19a7b6fe3f442072",
+      "bytes": 60907,
+      "source_artifacts": [
+        "out/mbo_sir/sirs_task_comparison.png"
+      ],
+      "derivation": "Original aggregate scientific figure, byte-identical."
+    },
+    {
+      "path": "README.md",
+      "sha256": "d615cd023bde93c4221a9f5490cb53320aab89bf5e387f1089a0878569f1327e",
+      "bytes": 8670,
+      "source_artifacts": [
+        "README.md",
+        "out/pilot/run_summary.json",
+        "out/wide_network/prediction_summary.json",
+        "out/wide_network/network_summary.json",
+        "out/volume_comparison/volume_comparison_summary.json",
+        "out/fresh_confirmation/confirmation_summary.json",
+        "out/mbo_sir/summary.json"
+      ],
+      "derivation": "Human-readable synthesis of original aggregate findings and the original project scientific write-up."
+    }
+  ],
+  "scope": "Aggregate historical study findings only; no raw/tick/grid/sampled prices, individual forecasts, credentials, model pickles or full model parameter blobs. Original artifacts remain outside this public bundle.",
+  "source_paths_relative_to": "Original ColonyLab project root",
+  "source_files_modified": false,
+  "new_market_data_requests": false,
+  "manifest_self_hash": "Excluded; bundle_checks.json records this manifest SHA-256."
+}

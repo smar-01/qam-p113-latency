@@ -1,0 +1,65 @@
+{
+  "experiment": "incremental cross-venue prediction of a quote shock in the next 10 ms",
+  "training_days": [
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09"
+  ],
+  "held_out_days": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16"
+  ],
+  "analysis_clock": "ts_recv",
+  "bin_ms": 10,
+  "lag_windows_ms": [
+    10,
+    100,
+    1000
+  ],
+  "history_ms": 1000,
+  "target": "Any frozen-threshold, de-duplicated midpoint shock in [t,t+10ms).",
+  "baseline": "Own past shock counts, elapsed seconds, past SPY shock counts across observed venues; SPY targets use past AAPL/MSFT activity.",
+  "network": "Identical baseline plus strictly past same-stock shock counts on the other observed venues.",
+  "mbo_predictors_used": false,
+  "model": "StandardScaler fitted on training rows only, then L2 logistic regression C=1, no class weighting or hyperparameter tuning.",
+  "eligibility": "Common observed window, full prior second, fresh prior quotes, no invalid or cross-segment historical states on predictor feeds and no target outcome-bin barriers. Both models score the same rows.",
+  "feed_coverage_note": "Per-feed exclusions use the same candidate grid and are not additive because excluded intervals overlap; the joint eligibility rule is unchanged.",
+  "improvement_sign": "Positive delta log loss or Brier = baseline loss minus network loss; positive favors network.",
+  "pooled_test_bins": 2971955,
+  "pooled_scores": {
+    "constant": {
+      "log_loss": 0.10685049142132853,
+      "brier": 0.02285541554381585,
+      "average_precision": 0.04522833573315932,
+      "roc_auc": 0.6791613399215608
+    },
+    "baseline": {
+      "log_loss": 0.0983889742006609,
+      "brier": 0.022162108237045945,
+      "average_precision": 0.1026597502705161,
+      "roc_auc": 0.7756470499912302
+    },
+    "network": {
+      "log_loss": 0.09704768508971341,
+      "brier": 0.022015929915208964,
+      "average_precision": 0.11204074629966822,
+      "roc_auc": 0.7887327079187463
+    },
+    "delta_log_loss": 0.0013412891109474828,
+    "delta_brier": 0.00014617832183698096
+  },
+  "limitations": [
+    "A limited collection of held-out intraday windows does not establish stable prediction across market regimes.",
+    "Bins and stock/venue tasks are dependent; pooled scores are descriptive with no independent-bin confidence intervals or p-values.",
+    "Past market-proxy activity is a limited common-shock control; news, transport delays, omitted venues and correlated order flow remain confounders.",
+    "This estimates predictive association, not causal influence, a maker's identity, a trading strategy or fitted SIR/Hawkes contagion parameters.",
+    "De-duplicated target shocks have a minimum separation; target-own histories let the baseline learn part of that construction.",
+    "Monthly venue weights and public maker/RPI fields are not predictors because publication-aware historical alignment has not yet been established."
+  ],
+  "relative_network_log_loss_gain_percent": 1.3632514434106917
+}

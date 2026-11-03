@@ -1,0 +1,814 @@
+{
+  "format_version": 1,
+  "symbol": "AAPL",
+  "as_of_utc": "2026-11-02T22:43:01Z",
+  "source_policy": "Official Apple Newsroom, Apple Developer, original Apple-issued Business Wire releases and SEC accession-level sources only. All2026 scheduled-event sources were reopened; all10 earnings-release publisher headers were verified in rendered original Business Wire pages via Cua.",
+  "initial_years": [
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "initial_primary_anchor_counts": {
+    "wwdc": 5,
+    "earnings_call": 10,
+    "product_launch": 3,
+    "earnings_release": 10
+  },
+  "availability_status": "Provider venue/schema/date/session availability is determined separately; a sourced event is not a claim of usable market-data coverage.",
+  "timestamp_policy": {
+    "scheduled_start": "Verified scheduled keynote/call minute; not the first public timestamp of every announcement inside it.",
+    "publication_date_only": "Release date verified, exact release clock not verified. Never substitute midnight, market open, 16:30 ET by convention, or the call start.",
+    "sec_acceptance_proxy": "SEC acceptance clock is preserved separately from the legal filing date and is not verified first public dissemination. Interpret the accession-level SGML clock in America/New_York rather than trusting a submissions-JSON Z suffix.",
+    "bundles": "Release/call/related SEC filing for the same reporting quarter share a bundle identifier and are not independent corporate-event replications.",
+    "session_controls": "WWDC/product keynotes are regular-session events; earnings calls are after-hours. Use same-session, same-clock controls; raw cross-class differences can reflect liquidity/session effects.",
+    "supplemental_years": "2020/2021 WWDC sources are verified but excluded from the initial cohort; their rows are context_only.",
+    "publisher_declared_publication": "The original issuer-distributed Business Wire page declares a publication minute. Use that minute, without claiming nanosecond first public dissemination. Earnings release/call anchors remain in one reporting bundle."
+  },
+  "events": [
+    {
+      "id": "aapl_wwdc20_keynote_20200622",
+      "event_class": "wwdc",
+      "bundle_id": "aapl_wwdc20_20200622",
+      "date": "2020-06-22",
+      "event_time_utc": "2020-06-22T17:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2020/06/apple-reveals-lineup-for-its-biggest-ever-worldwide-developers-conference/"
+      ],
+      "source_evidence": "June 22, 10 a.m. PDT",
+      "analysis_role": "context_only",
+      "session": "regular",
+      "notes": [
+        "Verified supplemental historical WWDC; excluded from initial2022-2026 cohort."
+      ]
+    },
+    {
+      "id": "aapl_wwdc21_keynote_20210607",
+      "event_class": "wwdc",
+      "bundle_id": "aapl_wwdc21_20210607",
+      "date": "2021-06-07",
+      "event_time_utc": "2021-06-07T17:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2021/05/apples-worldwide-developers-conference-kicks-off-june-7/"
+      ],
+      "source_evidence": "June 7, 10 a.m. PDT",
+      "analysis_role": "context_only",
+      "session": "regular",
+      "notes": [
+        "Verified supplemental historical WWDC; excluded from initial2022-2026 cohort."
+      ]
+    },
+    {
+      "id": "aapl_q2_earnings_release_20220428",
+      "event_class": "earnings_release",
+      "bundle_id": "aapl_q2_fy2022_reporting",
+      "date": "2022-04-28",
+      "event_time_utc": "2022-04-28T20:30:00Z",
+      "timestamp_precision": "publisher_minute",
+      "timestamp_nature": "publisher_declared_publication",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2022/04/apple-reports-second-quarter-results/",
+        "https://www.businesswire.com/news/home/20220428006221/en/Apple-Reports-Second-Quarter-Results"
+      ],
+      "source_evidence": "Apr 28, 2022 4:30 PM Eastern Daylight Time",
+      "analysis_role": "primary_intraday_event",
+      "notes": [
+        "Original Apple-issued Business Wire release: rendered publisher header verified via Cua by the root agent.",
+        "Publisher-declared minute is the anchor; it is not asserted to be the first nanosecond every investor received the news.",
+        "Apple Newsroom datePublished metadata alone is date-only; dateModified is not used as a release clock.",
+        "Release and call share one reporting bundle; the release post30 and call pre30 windows overlap and are not independent replications."
+      ],
+      "session": "postmarket"
+    },
+    {
+      "id": "aapl_q2_earnings_call_20220428",
+      "event_class": "earnings_call",
+      "bundle_id": "aapl_q2_fy2022_reporting",
+      "date": "2022-04-28",
+      "event_time_utc": "2022-04-28T21:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2022/04/apple-reports-second-quarter-results/"
+      ],
+      "source_evidence": "conference call beginning at 2:00 p.m. PT on April 28, 2022",
+      "analysis_role": "primary_intraday_event",
+      "session": "postmarket",
+      "notes": [
+        "Scheduled call start follows the earlier results release; the pre-call interval may already reflect earnings news.",
+        "Release and call are distinct anchors in the same reporting bundle, not independent earnings events."
+      ]
+    },
+    {
+      "id": "aapl_wwdc22_keynote_20220606",
+      "event_class": "wwdc",
+      "bundle_id": "aapl_wwdc22_20220606",
+      "date": "2022-06-06",
+      "event_time_utc": "2022-06-06T17:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2022/05/apples-worldwide-developers-conference-kicks-off-june-6-with-keynote-address/"
+      ],
+      "source_evidence": "June 6, 10 a.m. PDT",
+      "analysis_role": "primary_intraday_event",
+      "session": "regular",
+      "notes": [
+        "Co-announcements from the keynote belong to this bundle; do not count individual press releases as independent trials."
+      ]
+    },
+    {
+      "id": "aapl_q3_earnings_release_20220728",
+      "event_class": "earnings_release",
+      "bundle_id": "aapl_q3_fy2022_reporting",
+      "date": "2022-07-28",
+      "event_time_utc": "2022-07-28T20:30:00Z",
+      "timestamp_precision": "publisher_minute",
+      "timestamp_nature": "publisher_declared_publication",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2022/07/apple-reports-third-quarter-results/",
+        "https://www.businesswire.com/news/home/20220728005969/en/Apple-Reports-Third-Quarter-Results"
+      ],
+      "source_evidence": "Jul 28, 2022 4:30 PM Eastern Daylight Time",
+      "analysis_role": "primary_intraday_event",
+      "notes": [
+        "Original Apple-issued Business Wire release: rendered publisher header verified via Cua by the root agent.",
+        "Publisher-declared minute is the anchor; it is not asserted to be the first nanosecond every investor received the news.",
+        "Apple Newsroom datePublished metadata alone is date-only; dateModified is not used as a release clock.",
+        "Release and call share one reporting bundle; the release post30 and call pre30 windows overlap and are not independent replications."
+      ],
+      "session": "postmarket"
+    },
+    {
+      "id": "aapl_q3_earnings_call_20220728",
+      "event_class": "earnings_call",
+      "bundle_id": "aapl_q3_fy2022_reporting",
+      "date": "2022-07-28",
+      "event_time_utc": "2022-07-28T21:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2022/07/apple-reports-third-quarter-results/"
+      ],
+      "source_evidence": "conference call beginning at 2:00 p.m. PT on July 28, 2022",
+      "analysis_role": "primary_intraday_event",
+      "session": "postmarket",
+      "notes": [
+        "The earlier results release and later 10-Q acceptance are part of the same reporting bundle; call-window changes do not isolate the release surprise."
+      ]
+    },
+    {
+      "id": "aapl_10q_q3_fy2022_acceptance_20220728",
+      "event_class": "sec_10q",
+      "bundle_id": "aapl_q3_fy2022_reporting",
+      "date": "2022-07-28",
+      "event_time_utc": "2022-07-28T22:06:56Z",
+      "timestamp_precision": "second_acceptance_not_public_dissemination",
+      "timestamp_nature": "sec_acceptance_proxy",
+      "source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019322000070/0000320193-22-000070-index-headers.html"
+      ],
+      "source_evidence": "<ACCEPTANCE-DATETIME>20220728180656",
+      "analysis_role": "sensitivity_proxy",
+      "sec_accession": "0000320193-22-000070",
+      "sec_acceptance_clock_raw": "2022-07-28 18:06:56",
+      "sec_clock_timezone": "America/New_York",
+      "legal_filing_date": "2022-07-29",
+      "session": "postmarket",
+      "notes": [
+        "Legal filing date is the next day; the proxy anchor uses the actual acceptance clock.",
+        "Not verified first public dissemination and not independent of this quarter's earnings bundle."
+      ]
+    },
+    {
+      "id": "aapl_10k_fy2022_acceptance_20221027",
+      "event_class": "sec_10k",
+      "bundle_id": "aapl_q4_fy2022_reporting",
+      "date": "2022-10-27",
+      "event_time_utc": "2022-10-27T22:01:14Z",
+      "timestamp_precision": "second_acceptance_not_public_dissemination",
+      "timestamp_nature": "sec_acceptance_proxy",
+      "source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019322000108/0000320193-22-000108-index-headers.html"
+      ],
+      "source_evidence": "<ACCEPTANCE-DATETIME>20221027180114",
+      "analysis_role": "sensitivity_proxy",
+      "sec_accession": "0000320193-22-000108",
+      "sec_acceptance_clock_raw": "2022-10-27 18:01:14",
+      "sec_clock_timezone": "America/New_York",
+      "legal_filing_date": "2022-10-28",
+      "session": "postmarket",
+      "notes": [
+        "Acceptance differs from legal filing date. Not verified first public dissemination; annual results/filing belong to the same reporting bundle."
+      ]
+    },
+    {
+      "id": "aapl_q2_earnings_release_20230504",
+      "event_class": "earnings_release",
+      "bundle_id": "aapl_q2_fy2023_reporting",
+      "date": "2023-05-04",
+      "event_time_utc": "2023-05-04T20:30:00Z",
+      "timestamp_precision": "publisher_minute",
+      "timestamp_nature": "publisher_declared_publication",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2023/05/apple-reports-second-quarter-results/",
+        "https://www.businesswire.com/news/home/20230504006007/en/Apple-reports-second-quarter-results"
+      ],
+      "source_evidence": "May 4, 2023 4:30 PM Eastern Daylight Time",
+      "analysis_role": "primary_intraday_event",
+      "notes": [
+        "Original Apple-issued Business Wire release: rendered publisher header verified via Cua by the root agent.",
+        "Publisher-declared minute is the anchor; it is not asserted to be the first nanosecond every investor received the news.",
+        "Apple Newsroom datePublished metadata alone is date-only; dateModified is not used as a release clock.",
+        "Release and call share one reporting bundle; the release post30 and call pre30 windows overlap and are not independent replications."
+      ],
+      "session": "postmarket"
+    },
+    {
+      "id": "aapl_q2_earnings_call_20230504",
+      "event_class": "earnings_call",
+      "bundle_id": "aapl_q2_fy2023_reporting",
+      "date": "2023-05-04",
+      "event_time_utc": "2023-05-04T21:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2023/05/apple-reports-second-quarter-results/"
+      ],
+      "source_evidence": "conference call beginning at 2:00 p.m. PT on May 4, 2023",
+      "analysis_role": "primary_intraday_event",
+      "session": "postmarket",
+      "notes": [
+        "Pre-call prices may already reflect the earlier earnings release; one release/call bundle."
+      ]
+    },
+    {
+      "id": "aapl_wwdc23_keynote_20230605",
+      "event_class": "wwdc",
+      "bundle_id": "aapl_wwdc23_20230605",
+      "date": "2023-06-05",
+      "event_time_utc": "2023-06-05T17:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2023/05/apples-worldwide-developers-conference-to-kick-off-june-5-2023/"
+      ],
+      "source_evidence": "June 5, 10 a.m. PDT",
+      "analysis_role": "primary_intraday_event",
+      "session": "regular",
+      "notes": [
+        "Scheduled start; individual announcements and co-releases are one keynote bundle."
+      ]
+    },
+    {
+      "id": "aapl_q3_earnings_release_20230803",
+      "event_class": "earnings_release",
+      "bundle_id": "aapl_q3_fy2023_reporting",
+      "date": "2023-08-03",
+      "event_time_utc": "2023-08-03T20:30:00Z",
+      "timestamp_precision": "publisher_minute",
+      "timestamp_nature": "publisher_declared_publication",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2023/08/apple-reports-third-quarter-results/",
+        "https://www.businesswire.com/news/home/20230803893875/en/Apple-reports-third-quarter-results"
+      ],
+      "source_evidence": "Aug 3, 2023 4:30 PM Eastern Daylight Time",
+      "analysis_role": "primary_intraday_event",
+      "notes": [
+        "Original Apple-issued Business Wire release: rendered publisher header verified via Cua by the root agent.",
+        "Publisher-declared minute is the anchor; it is not asserted to be the first nanosecond every investor received the news.",
+        "Apple Newsroom datePublished metadata alone is date-only; dateModified is not used as a release clock.",
+        "Release and call share one reporting bundle; the release post30 and call pre30 windows overlap and are not independent replications."
+      ],
+      "session": "postmarket"
+    },
+    {
+      "id": "aapl_q3_earnings_call_20230803",
+      "event_class": "earnings_call",
+      "bundle_id": "aapl_q3_fy2023_reporting",
+      "date": "2023-08-03",
+      "event_time_utc": "2023-08-03T21:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2023/08/apple-reports-third-quarter-results/"
+      ],
+      "source_evidence": "conference call beginning at 2:00 p.m. PT on August 3, 2023",
+      "analysis_role": "primary_intraday_event",
+      "session": "postmarket",
+      "notes": [
+        "Earlier release and later 10-Q acceptance share this reporting bundle."
+      ]
+    },
+    {
+      "id": "aapl_10q_q3_fy2023_acceptance_20230803",
+      "event_class": "sec_10q",
+      "bundle_id": "aapl_q3_fy2023_reporting",
+      "date": "2023-08-03",
+      "event_time_utc": "2023-08-03T22:04:43Z",
+      "timestamp_precision": "second_acceptance_not_public_dissemination",
+      "timestamp_nature": "sec_acceptance_proxy",
+      "source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019323000077/0000320193-23-000077-index-headers.html"
+      ],
+      "source_evidence": "<ACCEPTANCE-DATETIME>20230803180443",
+      "analysis_role": "sensitivity_proxy",
+      "sec_accession": "0000320193-23-000077",
+      "sec_acceptance_clock_raw": "2023-08-03 18:04:43",
+      "sec_clock_timezone": "America/New_York",
+      "legal_filing_date": "2023-08-04",
+      "session": "postmarket",
+      "notes": [
+        "Acceptance precedes the legal filing date. Not verified first public dissemination; same earnings bundle."
+      ]
+    },
+    {
+      "id": "aapl_10k_fy2023_acceptance_20231102",
+      "event_class": "sec_10k",
+      "bundle_id": "aapl_q4_fy2023_reporting",
+      "date": "2023-11-02",
+      "event_time_utc": "2023-11-02T22:08:27Z",
+      "timestamp_precision": "second_acceptance_not_public_dissemination",
+      "timestamp_nature": "sec_acceptance_proxy",
+      "source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/0000320193-23-000106-index-headers.html"
+      ],
+      "source_evidence": "<ACCEPTANCE-DATETIME>20231102180827",
+      "analysis_role": "sensitivity_proxy",
+      "sec_accession": "0000320193-23-000106",
+      "sec_acceptance_clock_raw": "2023-11-02 18:08:27",
+      "sec_clock_timezone": "America/New_York",
+      "legal_filing_date": "2023-11-03",
+      "session": "postmarket",
+      "notes": [
+        "America/New_York remains on daylight time on this date. Not verified first public dissemination; annual reporting bundle."
+      ]
+    },
+    {
+      "id": "aapl_q2_earnings_release_20240502",
+      "event_class": "earnings_release",
+      "bundle_id": "aapl_q2_fy2024_reporting",
+      "date": "2024-05-02",
+      "event_time_utc": "2024-05-02T20:30:00Z",
+      "timestamp_precision": "publisher_minute",
+      "timestamp_nature": "publisher_declared_publication",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2024/05/apple-reports-second-quarter-results/",
+        "https://www.businesswire.com/news/home/20240502965412/en/Apple-reports-second-quarter-results"
+      ],
+      "source_evidence": "May 2, 2024 4:30 PM Eastern Daylight Time",
+      "analysis_role": "primary_intraday_event",
+      "notes": [
+        "Original Apple-issued Business Wire release: rendered publisher header verified via Cua by the root agent.",
+        "Publisher-declared minute is the anchor; it is not asserted to be the first nanosecond every investor received the news.",
+        "Apple Newsroom datePublished metadata alone is date-only; dateModified is not used as a release clock.",
+        "Release and call share one reporting bundle; the release post30 and call pre30 windows overlap and are not independent replications."
+      ],
+      "session": "postmarket"
+    },
+    {
+      "id": "aapl_q2_earnings_call_20240502",
+      "event_class": "earnings_call",
+      "bundle_id": "aapl_q2_fy2024_reporting",
+      "date": "2024-05-02",
+      "event_time_utc": "2024-05-02T21:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2024/05/apple-reports-second-quarter-results/"
+      ],
+      "source_evidence": "conference call beginning at 2:00 p.m. PT on May 2, 2024",
+      "analysis_role": "primary_intraday_event",
+      "session": "postmarket",
+      "notes": [
+        "Pre-call prices may already reflect the earlier earnings release; one release/call bundle."
+      ]
+    },
+    {
+      "id": "aapl_wwdc24_keynote_20240610",
+      "event_class": "wwdc",
+      "bundle_id": "aapl_wwdc24_20240610",
+      "date": "2024-06-10",
+      "event_time_utc": "2024-06-10T17:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://developer.apple.com/news/?id=20mtt804",
+        "https://developer.apple.com/hello/june24/?id=z72iiacc"
+      ],
+      "source_evidence": "June 10, 2024; Keynote; 10 a.m. PT",
+      "analysis_role": "primary_intraday_event",
+      "session": "regular",
+      "notes": [
+        "Scheduled start; co-announcements belong to one keynote bundle."
+      ]
+    },
+    {
+      "id": "aapl_q3_earnings_release_20240801",
+      "event_class": "earnings_release",
+      "bundle_id": "aapl_q3_fy2024_reporting",
+      "date": "2024-08-01",
+      "event_time_utc": "2024-08-01T20:30:00Z",
+      "timestamp_precision": "publisher_minute",
+      "timestamp_nature": "publisher_declared_publication",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2024/08/apple-reports-third-quarter-results/",
+        "https://www.businesswire.com/news/home/20240801799244/en/Apple-reports-third-quarter-results"
+      ],
+      "source_evidence": "Aug 1, 2024 4:30 PM Eastern Daylight Time",
+      "analysis_role": "primary_intraday_event",
+      "notes": [
+        "Original Apple-issued Business Wire release: rendered publisher header verified via Cua by the root agent.",
+        "Publisher-declared minute is the anchor; it is not asserted to be the first nanosecond every investor received the news.",
+        "Apple Newsroom datePublished metadata alone is date-only; dateModified is not used as a release clock.",
+        "Release and call share one reporting bundle; the release post30 and call pre30 windows overlap and are not independent replications."
+      ],
+      "session": "postmarket"
+    },
+    {
+      "id": "aapl_q3_earnings_call_20240801",
+      "event_class": "earnings_call",
+      "bundle_id": "aapl_q3_fy2024_reporting",
+      "date": "2024-08-01",
+      "event_time_utc": "2024-08-01T21:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2024/08/apple-reports-third-quarter-results/"
+      ],
+      "source_evidence": "conference call beginning at 2:00 p.m. PT on August 1, 2024",
+      "analysis_role": "primary_intraday_event",
+      "session": "postmarket",
+      "notes": [
+        "Earlier release and later 10-Q acceptance share this reporting bundle."
+      ]
+    },
+    {
+      "id": "aapl_10q_q3_fy2024_acceptance_20240801",
+      "event_class": "sec_10q",
+      "bundle_id": "aapl_q3_fy2024_reporting",
+      "date": "2024-08-01",
+      "event_time_utc": "2024-08-01T22:03:34Z",
+      "timestamp_precision": "second_acceptance_not_public_dissemination",
+      "timestamp_nature": "sec_acceptance_proxy",
+      "source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019324000081/0000320193-24-000081-index-headers.html"
+      ],
+      "source_evidence": "<ACCEPTANCE-DATETIME>20240801180334",
+      "analysis_role": "sensitivity_proxy",
+      "sec_accession": "0000320193-24-000081",
+      "sec_acceptance_clock_raw": "2024-08-01 18:03:34",
+      "sec_clock_timezone": "America/New_York",
+      "legal_filing_date": "2024-08-02",
+      "session": "postmarket",
+      "notes": [
+        "Acceptance precedes the legal filing date. Not verified first public dissemination; same earnings bundle."
+      ]
+    },
+    {
+      "id": "aapl_product_keynote_20240909",
+      "event_class": "product_launch",
+      "bundle_id": "aapl_september_launch_20240909",
+      "date": "2024-09-09",
+      "event_time_utc": "2024-09-09T17:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://developer.apple.com/news/?id=zvdnvggt"
+      ],
+      "source_evidence": "Apple Event on September 9 at 10 a.m. PT",
+      "analysis_role": "primary_intraday_event",
+      "session": "regular",
+      "notes": [
+        "Official invitation published August26,2024. Scheduled event start is distinct from individual product reveals."
+      ]
+    },
+    {
+      "id": "aapl_10k_fy2024_acceptance_20241101",
+      "event_class": "sec_10k",
+      "bundle_id": "aapl_q4_fy2024_reporting",
+      "date": "2024-11-01",
+      "event_time_utc": "2024-11-01T10:01:36Z",
+      "timestamp_precision": "second_acceptance_not_public_dissemination",
+      "timestamp_nature": "sec_acceptance_proxy",
+      "source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/0000320193-24-000123-index-headers.html"
+      ],
+      "source_evidence": "<ACCEPTANCE-DATETIME>20241101060136",
+      "analysis_role": "sensitivity_proxy",
+      "sec_accession": "0000320193-24-000123",
+      "sec_acceptance_clock_raw": "2024-11-01 06:01:36",
+      "sec_clock_timezone": "America/New_York",
+      "legal_filing_date": "2024-11-01",
+      "session": "premarket",
+      "notes": [
+        "America/New_York remains on daylight time on this date. Not verified first public dissemination; annual reporting bundle."
+      ]
+    },
+    {
+      "id": "aapl_q2_earnings_release_20250501",
+      "event_class": "earnings_release",
+      "bundle_id": "aapl_q2_fy2025_reporting",
+      "date": "2025-05-01",
+      "event_time_utc": "2025-05-01T20:30:00Z",
+      "timestamp_precision": "publisher_minute",
+      "timestamp_nature": "publisher_declared_publication",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2025/05/apple-reports-second-quarter-results/",
+        "https://www.businesswire.com/news/home/20250501689914/en/Apple-reports-second-quarter-results"
+      ],
+      "source_evidence": "May 1, 2025 4:30 PM Eastern Daylight Time",
+      "analysis_role": "primary_intraday_event",
+      "notes": [
+        "Original Apple-issued Business Wire release: rendered publisher header verified via Cua by the root agent.",
+        "Publisher-declared minute is the anchor; it is not asserted to be the first nanosecond every investor received the news.",
+        "Apple Newsroom datePublished metadata alone is date-only; dateModified is not used as a release clock.",
+        "Release and call share one reporting bundle; the release post30 and call pre30 windows overlap and are not independent replications."
+      ],
+      "session": "postmarket"
+    },
+    {
+      "id": "aapl_q2_earnings_call_20250501",
+      "event_class": "earnings_call",
+      "bundle_id": "aapl_q2_fy2025_reporting",
+      "date": "2025-05-01",
+      "event_time_utc": "2025-05-01T21:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2025/05/apple-reports-second-quarter-results/"
+      ],
+      "source_evidence": "conference call beginning at 2:00 p.m. PT on May 1, 2025",
+      "analysis_role": "primary_intraday_event",
+      "session": "postmarket",
+      "notes": [
+        "Pre-call prices may already reflect the earlier earnings release; one release/call bundle."
+      ]
+    },
+    {
+      "id": "aapl_wwdc25_keynote_20250609",
+      "event_class": "wwdc",
+      "bundle_id": "aapl_wwdc25_20250609",
+      "date": "2025-06-09",
+      "event_time_utc": "2025-06-09T17:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2025/05/apples-worldwide-developers-conference-kicks-off-june-9/"
+      ],
+      "source_evidence": "June 9, 10 a.m. PDT",
+      "analysis_role": "primary_intraday_event",
+      "session": "regular",
+      "notes": [
+        "Scheduled start; co-announcements belong to one keynote bundle."
+      ]
+    },
+    {
+      "id": "aapl_q3_earnings_release_20250731",
+      "event_class": "earnings_release",
+      "bundle_id": "aapl_q3_fy2025_reporting",
+      "date": "2025-07-31",
+      "event_time_utc": "2025-07-31T20:30:00Z",
+      "timestamp_precision": "publisher_minute",
+      "timestamp_nature": "publisher_declared_publication",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2025/07/apple-reports-third-quarter-results/",
+        "https://www.businesswire.com/news/home/20250731999776/en/Apple-reports-third-quarter-results"
+      ],
+      "source_evidence": "Jul 31, 2025 4:30 PM Eastern Daylight Time",
+      "analysis_role": "primary_intraday_event",
+      "notes": [
+        "Original Apple-issued Business Wire release: rendered publisher header verified via Cua by the root agent.",
+        "Publisher-declared minute is the anchor; it is not asserted to be the first nanosecond every investor received the news.",
+        "Apple Newsroom datePublished metadata alone is date-only; dateModified is not used as a release clock.",
+        "Release and call share one reporting bundle; the release post30 and call pre30 windows overlap and are not independent replications."
+      ],
+      "session": "postmarket"
+    },
+    {
+      "id": "aapl_q3_earnings_call_20250731",
+      "event_class": "earnings_call",
+      "bundle_id": "aapl_q3_fy2025_reporting",
+      "date": "2025-07-31",
+      "event_time_utc": "2025-07-31T21:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2025/07/apple-reports-third-quarter-results/"
+      ],
+      "source_evidence": "conference call beginning at 2:00 p.m. PT on July 31, 2025",
+      "analysis_role": "primary_intraday_event",
+      "session": "postmarket",
+      "notes": [
+        "Earlier release and next-day 10-Q acceptance share this reporting bundle."
+      ]
+    },
+    {
+      "id": "aapl_10q_q3_fy2025_acceptance_20250801",
+      "event_class": "sec_10q",
+      "bundle_id": "aapl_q3_fy2025_reporting",
+      "date": "2025-08-01",
+      "event_time_utc": "2025-08-01T10:00:42Z",
+      "timestamp_precision": "second_acceptance_not_public_dissemination",
+      "timestamp_nature": "sec_acceptance_proxy",
+      "source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019325000073/0000320193-25-000073-index-headers.html"
+      ],
+      "source_evidence": "<ACCEPTANCE-DATETIME>20250801060042",
+      "analysis_role": "sensitivity_proxy",
+      "sec_accession": "0000320193-25-000073",
+      "sec_acceptance_clock_raw": "2025-08-01 06:00:42",
+      "sec_clock_timezone": "America/New_York",
+      "legal_filing_date": "2025-08-01",
+      "session": "premarket",
+      "notes": [
+        "Not verified first public dissemination; same reporting bundle as July31 release/call despite the different date."
+      ]
+    },
+    {
+      "id": "aapl_product_keynote_20250909",
+      "event_class": "product_launch",
+      "bundle_id": "aapl_september_launch_20250909",
+      "date": "2025-09-09",
+      "event_time_utc": "2025-09-09T17:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://developer.apple.com/news/?id=p9nukitr"
+      ],
+      "source_evidence": "Apple Event on September 9 at 10 a.m. PT",
+      "analysis_role": "primary_intraday_event",
+      "session": "regular",
+      "notes": [
+        "Official invitation published August26,2025. Scheduled start; individual product reveals are not independent events."
+      ]
+    },
+    {
+      "id": "aapl_10k_fy2025_acceptance_20251031",
+      "event_class": "sec_10k",
+      "bundle_id": "aapl_q4_fy2025_reporting",
+      "date": "2025-10-31",
+      "event_time_utc": "2025-10-31T10:01:26Z",
+      "timestamp_precision": "second_acceptance_not_public_dissemination",
+      "timestamp_nature": "sec_acceptance_proxy",
+      "source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index-headers.html"
+      ],
+      "source_evidence": "<ACCEPTANCE-DATETIME>20251031060126",
+      "analysis_role": "sensitivity_proxy",
+      "sec_accession": "0000320193-25-000079",
+      "sec_acceptance_clock_raw": "2025-10-31 06:01:26",
+      "sec_clock_timezone": "America/New_York",
+      "legal_filing_date": "2025-10-31",
+      "session": "premarket",
+      "notes": [
+        "Not verified first public dissemination; annual reporting bundle. No FY2026 10-K date is predicted."
+      ]
+    },
+    {
+      "id": "aapl_q2_earnings_release_20260430",
+      "event_class": "earnings_release",
+      "bundle_id": "aapl_q2_fy2026_reporting",
+      "date": "2026-04-30",
+      "event_time_utc": "2026-04-30T20:30:00Z",
+      "timestamp_precision": "publisher_minute",
+      "timestamp_nature": "publisher_declared_publication",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2026/04/apple-reports-second-quarter-results/",
+        "https://www.businesswire.com/news/home/20260430987304/en/Apple-reports-second-quarter-results"
+      ],
+      "source_evidence": "Apr 30, 2026 4:30 PM Eastern Daylight Time",
+      "analysis_role": "primary_intraday_event",
+      "notes": [
+        "Original Apple-issued Business Wire release: rendered publisher header verified via Cua by the root agent.",
+        "Publisher-declared minute is the anchor; it is not asserted to be the first nanosecond every investor received the news.",
+        "Apple Newsroom datePublished metadata alone is date-only; dateModified is not used as a release clock.",
+        "Release and call share one reporting bundle; the release post30 and call pre30 windows overlap and are not independent replications."
+      ],
+      "session": "postmarket"
+    },
+    {
+      "id": "aapl_q2_earnings_call_20260430",
+      "event_class": "earnings_call",
+      "bundle_id": "aapl_q2_fy2026_reporting",
+      "date": "2026-04-30",
+      "event_time_utc": "2026-04-30T21:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2026/04/apple-reports-second-quarter-results/"
+      ],
+      "source_evidence": "conference call beginning at 2:00 p.m. PT on April 30, 2026",
+      "analysis_role": "primary_intraday_event",
+      "session": "postmarket",
+      "notes": [
+        "Official2026 source reopened. Pre-call prices may already reflect earlier results; one reporting bundle."
+      ]
+    },
+    {
+      "id": "aapl_wwdc26_keynote_20260608",
+      "event_class": "wwdc",
+      "bundle_id": "aapl_wwdc26_20260608",
+      "date": "2026-06-08",
+      "event_time_utc": "2026-06-08T17:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2026/05/apple-kicks-off-worldwide-developers-conference-on-june-8/"
+      ],
+      "source_evidence": "June 8, 10 a.m. PDT",
+      "analysis_role": "primary_intraday_event",
+      "session": "regular",
+      "notes": [
+        "Official2026 source reopened. This previously inspected event must remain identified as discovery/exploratory rather than fresh confirmation.",
+        "Scheduled start, not the clock of every WWDC announcement; one co-announcement bundle."
+      ]
+    },
+    {
+      "id": "aapl_q3_earnings_release_20260730",
+      "event_class": "earnings_release",
+      "bundle_id": "aapl_q3_fy2026_reporting",
+      "date": "2026-07-30",
+      "event_time_utc": "2026-07-30T20:30:00Z",
+      "timestamp_precision": "publisher_minute",
+      "timestamp_nature": "publisher_declared_publication",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2026/07/apple-reports-third-quarter-results/",
+        "https://www.businesswire.com/news/home/20260730284687/en/Apple-reports-third-quarter-results"
+      ],
+      "source_evidence": "Jul 30, 2026 4:30 PM Eastern Daylight Time",
+      "analysis_role": "primary_intraday_event",
+      "notes": [
+        "Original Apple-issued Business Wire release: rendered publisher header verified via Cua by the root agent.",
+        "Publisher-declared minute is the anchor; it is not asserted to be the first nanosecond every investor received the news.",
+        "Apple Newsroom datePublished metadata alone is date-only; dateModified is not used as a release clock.",
+        "Release and call share one reporting bundle; the release post30 and call pre30 windows overlap and are not independent replications."
+      ],
+      "session": "postmarket"
+    },
+    {
+      "id": "aapl_q3_earnings_call_20260730",
+      "event_class": "earnings_call",
+      "bundle_id": "aapl_q3_fy2026_reporting",
+      "date": "2026-07-30",
+      "event_time_utc": "2026-07-30T21:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://www.apple.com/newsroom/2026/07/apple-reports-third-quarter-results/"
+      ],
+      "source_evidence": "conference call beginning at 2:00 p.m. PT on July 30, 2026",
+      "analysis_role": "primary_intraday_event",
+      "session": "postmarket",
+      "notes": [
+        "Official2026 source reopened. Earlier release and next-day10-Q share this reporting bundle."
+      ]
+    },
+    {
+      "id": "aapl_10q_q3_fy2026_acceptance_20260731",
+      "event_class": "sec_10q",
+      "bundle_id": "aapl_q3_fy2026_reporting",
+      "date": "2026-07-31",
+      "event_time_utc": "2026-07-31T10:01:02Z",
+      "timestamp_precision": "second_acceptance_not_public_dissemination",
+      "timestamp_nature": "sec_acceptance_proxy",
+      "source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019326000020/0000320193-26-000020-index-headers.html"
+      ],
+      "source_evidence": "<ACCEPTANCE-DATETIME>20260731060102",
+      "analysis_role": "sensitivity_proxy",
+      "sec_accession": "0000320193-26-000020",
+      "sec_acceptance_clock_raw": "2026-07-31 06:01:02",
+      "sec_clock_timezone": "America/New_York",
+      "legal_filing_date": "2026-07-31",
+      "session": "premarket",
+      "notes": [
+        "SGML header reopened; do not use an ambiguous submissions-JSON clock. Not verified first public dissemination; July30 reporting bundle."
+      ]
+    },
+    {
+      "id": "aapl_product_keynote_20260909",
+      "event_class": "product_launch",
+      "bundle_id": "aapl_september_launch_20260909",
+      "date": "2026-09-09",
+      "event_time_utc": "2026-09-09T17:00:00Z",
+      "timestamp_precision": "scheduled_minute",
+      "timestamp_nature": "scheduled_start",
+      "source_urls": [
+        "https://developer.apple.com/news/?id=s6spdug0",
+        "https://developer.apple.com/hello/september26/"
+      ],
+      "source_evidence": "Apple Event on September 9 at 10 a.m. PT",
+      "analysis_role": "primary_intraday_event",
+      "session": "regular",
+      "notes": [
+        "Official2026 invitation reopened. Saved morning-only quotes do not cover this keynote; usable event-window data require separate availability/quality checks."
+      ]
+    }
+  ]
+}

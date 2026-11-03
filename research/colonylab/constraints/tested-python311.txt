@@ -1,0 +1,13 @@
+# Exact versions in the original tested Python 3.11 environment.
+# Constraints aid reproduction; this is not a cross-platform lockfile.
+databento==0.88.0
+databento-dbn==0.70.0
+numpy==2.4.6
+pandas==2.2.3
+scipy==1.15.3
+scikit-learn==1.7.0
+matplotlib==3.10.3
+threadpoolctl==3.6.0
+statsmodels==0.14.4
+pyarrow==26.0.0
+pytest==9.1.0

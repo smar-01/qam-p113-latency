@@ -1,0 +1,5 @@
+# Combined p113 + ColonyLab environment, validated on Python 3.11.
+# This is separate from the historical Python 3.12 standalone requirements.txt.
+-c research/colonylab/constraints/tested-python311.txt
+-e ./research/colonylab
+pytest

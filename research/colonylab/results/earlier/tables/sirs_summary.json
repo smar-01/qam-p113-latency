@@ -1,0 +1,421 @@
+{
+  "all_models_converged": true,
+  "book_validation": {
+    "all_passed": true,
+    "full_session_semantic_errors": 0,
+    "matched_keys": 4228249,
+    "mismatch_keys": 0,
+    "missing_keys": 0,
+    "quality": [
+      {
+        "candidate_grid_rows": 7020000,
+        "dataset": "XNAS.ITCH",
+        "native_bad_book_flags": 0,
+        "native_bad_receive_flags": 0,
+        "receive_time_reversals": 0,
+        "valid_grid_rows": 7020000
+      },
+      {
+        "candidate_grid_rows": 7020000,
+        "dataset": "XNYS.PILLAR",
+        "native_bad_book_flags": 0,
+        "native_bad_receive_flags": 0,
+        "receive_time_reversals": 0,
+        "valid_grid_rows": 7020000
+      },
+      {
+        "candidate_grid_rows": 7020000,
+        "dataset": "BATS.PITCH",
+        "native_bad_book_flags": 0,
+        "native_bad_receive_flags": 0,
+        "receive_time_reversals": 0,
+        "valid_grid_rows": 7020000
+      },
+      {
+        "candidate_grid_rows": 7020000,
+        "dataset": "ARCX.PILLAR",
+        "native_bad_book_flags": 4397598,
+        "native_bad_receive_flags": 4,
+        "receive_time_reversals": 0,
+        "valid_grid_rows": 6613918
+      },
+      {
+        "candidate_grid_rows": 7020000,
+        "dataset": "EDGX.PITCH",
+        "native_bad_book_flags": 0,
+        "native_bad_receive_flags": 0,
+        "receive_time_reversals": 0,
+        "valid_grid_rows": 7020000
+      },
+      {
+        "candidate_grid_rows": 7020000,
+        "dataset": "MEMX.MEMOIR",
+        "native_bad_book_flags": 0,
+        "native_bad_receive_flags": 0,
+        "receive_time_reversals": 0,
+        "valid_grid_rows": 7020000
+      },
+      {
+        "candidate_grid_rows": 7020000,
+        "dataset": "BATY.PITCH",
+        "native_bad_book_flags": 0,
+        "native_bad_receive_flags": 0,
+        "receive_time_reversals": 0,
+        "valid_grid_rows": 7020000
+      },
+      {
+        "candidate_grid_rows": 7020000,
+        "dataset": "EDGA.PITCH",
+        "native_bad_book_flags": 0,
+        "native_bad_receive_flags": 0,
+        "receive_time_reversals": 0,
+        "valid_grid_rows": 7020000
+      }
+    ],
+    "tasks": 240
+  },
+  "comparability": "Previous MBP experiment used different dates, stocks, exposure duration, shock labels and eligible cohort; compare models within this experiment only.",
+  "complete": true,
+  "created_utc": "2026-10-27T04:14:08.454768+00:00",
+  "datasets": [
+    "XNAS.ITCH",
+    "XNYS.PILLAR",
+    "BATS.PITCH",
+    "ARCX.PILLAR",
+    "EDGX.PITCH",
+    "MEMX.MEMOIR",
+    "BATY.PITCH",
+    "EDGA.PITCH"
+  ],
+  "held_out_days": [
+    "2026-06-15",
+    "2026-06-16",
+    "2026-06-17",
+    "2026-06-18",
+    "2026-06-22",
+    "2026-06-23",
+    "2026-06-24",
+    "2026-06-25",
+    "2026-06-26",
+    "2026-06-29",
+    "2026-06-30",
+    "2026-07-01",
+    "2026-07-02",
+    "2026-07-06",
+    "2026-07-07",
+    "2026-07-08",
+    "2026-07-09",
+    "2026-07-10",
+    "2026-07-13",
+    "2026-07-14"
+  ],
+  "limitations": "Unsigned shock-risk propagation, not signed price-level impact. Full displayed MBO does not reveal hidden resting orders or maker identities. Beta rates are conditional predictive associations; no causal contagion, epidemiological R0 or trading profit is inferred.",
+  "mbo_rows_replayed": 527567665,
+  "model_metrics": [
+    {
+      "brier": 0.011373376701583334,
+      "brier_sum": 314916.09680506686,
+      "log_loss": 0.05713704890540141,
+      "log_loss_sum": 1582061.0621069376,
+      "model": "independent_mbo_hazard",
+      "positive_count": 324223,
+      "rows": 27688883
+    },
+    {
+      "brier": 0.011361265606148746,
+      "brier_sum": 314580.75410057674,
+      "log_loss": 0.0568818486886485,
+      "log_loss_sum": 1574994.8531636917,
+      "model": "logistic_network",
+      "positive_count": 324223,
+      "rows": 27688883
+    },
+    {
+      "brier": 0.011372860781856326,
+      "brier_sum": 314901.81156410836,
+      "log_loss": 0.05712537874622069,
+      "log_loss_sum": 1581737.9284347913,
+      "model": "past_shifted_sirs",
+      "positive_count": 324223,
+      "rows": 27688883
+    },
+    {
+      "brier": 0.011372197601496771,
+      "brier_sum": 314883.4488407247,
+      "log_loss": 0.05710270674331623,
+      "log_loss_sum": 1581110.1659989941,
+      "model": "sirs_network",
+      "positive_count": 324223,
+      "rows": 27688883
+    }
+  ],
+  "name": "eight-venue-full-depth-aapl-sirs",
+  "numerical_guard_rows": 0,
+  "positive_directed_edges": 48,
+  "provider_quality": {
+    "frozen_dates_retained": true,
+    "limitation": "The all-venue quality mask excludes unsupported intervals from every model. Same-provider depth agreement does not certify upstream feed completeness; the underlying provider incident is unknown.",
+    "observed_reduced_book_coverage": [
+      {
+        "candidate_anchors": 234000,
+        "dataset": "ARCX.PILLAR",
+        "day": "2026-06-24",
+        "native_bad_book_flags": 2287453,
+        "native_bad_receive_time_flags": 0,
+        "valid_anchors": 23193
+      },
+      {
+        "candidate_anchors": 234000,
+        "dataset": "ARCX.PILLAR",
+        "day": "2026-07-14",
+        "native_bad_book_flags": 2110145,
+        "native_bad_receive_time_flags": 4,
+        "valid_anchors": 38725
+      }
+    ],
+    "reduced_quality_conditions": [
+      {
+        "condition": "degraded",
+        "dataset": "ARCX.PILLAR",
+        "date": "2026-06-24",
+        "last_modified_date": "2026-06-25"
+      },
+      {
+        "condition": "degraded",
+        "dataset": "ARCX.PILLAR",
+        "date": "2026-07-14",
+        "last_modified_date": "2026-07-15"
+      }
+    ],
+    "retrieved_utc": "2026-10-27T03:35:06.827627+00:00",
+    "source_file": "dataset_conditions.json",
+    "source_sha256": "273aa1b6d592d9dd6d442df28deeead9df9d468b965edc16c9283cbcc26c325b",
+    "venue_day_conditions": 240
+  },
+  "raw_requests": 510,
+  "raw_rows": 532658530,
+  "supports_incremental_prediction": true,
+  "symbol": "AAPL",
+  "thresholds": {
+    "ARCX.PILLAR": 0.005,
+    "BATS.PITCH": 0.015,
+    "BATY.PITCH": 1.31,
+    "EDGA.PITCH": 0.4,
+    "EDGX.PITCH": 0.015,
+    "MEMX.MEMOIR": 0.04,
+    "XNAS.ITCH": 0.005,
+    "XNYS.PILLAR": 0.02
+  },
+  "training_days": [
+    "2026-06-01",
+    "2026-06-02",
+    "2026-06-03",
+    "2026-06-04",
+    "2026-06-05",
+    "2026-06-08",
+    "2026-06-09",
+    "2026-06-10",
+    "2026-06-11",
+    "2026-06-12"
+  ],
+  "comparisons": {
+    "independent_mbo_hazard": {
+      "candidate_model": "sirs_network",
+      "reference_model": "independent_mbo_hazard",
+      "status": "ok",
+      "observed_day_count": 20,
+      "expected_day_count": 20,
+      "pooled": {
+        "brier": {
+          "absolute_gain": 1.179100086561449e-06,
+          "candidate": 0.011372197601496773,
+          "reference": 0.011373376701583334,
+          "relative_gain_percent": 0.01036719452365718
+        },
+        "log_loss": {
+          "absolute_gain": 3.4342162085168364e-05,
+          "candidate": 0.05710270674331623,
+          "reference": 0.057137048905401396,
+          "relative_gain_percent": 0.06010489296012952
+        },
+        "rows": 27688883
+      },
+      "positive_log_loss_days": 20,
+      "negative_log_loss_days": 0,
+      "five_session_block_bootstrap": {
+        "blocks_per_replicate": 4,
+        "brier": {
+          "absolute_gain_ci95": [
+            1.0456463507612673e-06,
+            1.2655029853665e-06
+          ],
+          "relative_gain_percent_ci95": [
+            0.007802980072050351,
+            0.011969960958799862
+          ]
+        },
+        "confidence_level": 0.95,
+        "effective_block_sessions": 5,
+        "log_loss": {
+          "absolute_gain_ci95": [
+            2.5092430471177485e-05,
+            3.987712813089432e-05
+          ],
+          "relative_gain_percent_ci95": [
+            0.03925499882882064,
+            0.0738672658966774
+          ]
+        },
+        "method": "paired_moving_session_block_bootstrap",
+        "replicates": 10000,
+        "requested_block_sessions": 5,
+        "seed": 20261027,
+        "sessions_per_replicate": 20,
+        "wraps_date_range": false
+      },
+      "positive_block_interval": true,
+      "supports_positive_incremental_prediction": true,
+      "limitations": [
+        "Dependent bins are not independent experiments; no independent-bin p-values are computed.",
+        "Twenty dates contain only about four non-overlapping five-session blocks; intervals remain approximate.",
+        "The moving-block interval uses overlapping consecutive sessions without wrapping; finite-sample edge weighting and regime changes can affect it.",
+        "Results are conditional on the frozen model, the observed coverage cohort and sampled intraday window.",
+        "Predictive loss improvement establishes neither causal impact nor trading profitability.",
+        "SIRS infection and refractory durations are predeclared state definitions, not fitted recovery or immunity rates.",
+        "Directed nonnegative transmission coefficients measure conditional predictive associations, not causal venue influence."
+      ]
+    },
+    "logistic_network": {
+      "candidate_model": "sirs_network",
+      "reference_model": "logistic_network",
+      "status": "ok",
+      "observed_day_count": 20,
+      "expected_day_count": 20,
+      "pooled": {
+        "brier": {
+          "absolute_gain": -1.093199534802782e-05,
+          "candidate": 0.011372197601496773,
+          "reference": 0.011361265606148745,
+          "relative_gain_percent": -0.09622163346054859
+        },
+        "log_loss": {
+          "absolute_gain": -0.00022085805466774886,
+          "candidate": 0.05710270674331623,
+          "reference": 0.056881848688648484,
+          "relative_gain_percent": -0.3882750996309021
+        },
+        "rows": 27688883
+      },
+      "positive_log_loss_days": 0,
+      "negative_log_loss_days": 20,
+      "five_session_block_bootstrap": {
+        "blocks_per_replicate": 4,
+        "brier": {
+          "absolute_gain_ci95": [
+            -1.2586660513646092e-05,
+            -9.272312056370873e-06
+          ],
+          "relative_gain_percent_ci95": [
+            -0.11664227206409511,
+            -0.07235448770468701
+          ]
+        },
+        "confidence_level": 0.95,
+        "effective_block_sessions": 5,
+        "log_loss": {
+          "absolute_gain_ci95": [
+            -0.00023738401823569883,
+            -0.0002057989301304489
+          ],
+          "relative_gain_percent_ci95": [
+            -0.4302164371118521,
+            -0.3393577507787845
+          ]
+        },
+        "method": "paired_moving_session_block_bootstrap",
+        "replicates": 10000,
+        "requested_block_sessions": 5,
+        "seed": 20261027,
+        "sessions_per_replicate": 20,
+        "wraps_date_range": false
+      },
+      "positive_block_interval": false,
+      "supports_positive_incremental_prediction": false,
+      "limitations": [
+        "Dependent bins are not independent experiments; no independent-bin p-values are computed.",
+        "Twenty dates contain only about four non-overlapping five-session blocks; intervals remain approximate.",
+        "The moving-block interval uses overlapping consecutive sessions without wrapping; finite-sample edge weighting and regime changes can affect it.",
+        "Results are conditional on the frozen model, the observed coverage cohort and sampled intraday window.",
+        "Predictive loss improvement establishes neither causal impact nor trading profitability.",
+        "SIRS infection and refractory durations are predeclared state definitions, not fitted recovery or immunity rates.",
+        "Directed nonnegative transmission coefficients measure conditional predictive associations, not causal venue influence."
+      ]
+    },
+    "past_shifted_sirs": {
+      "candidate_model": "sirs_network",
+      "reference_model": "past_shifted_sirs",
+      "status": "ok",
+      "observed_day_count": 20,
+      "expected_day_count": 20,
+      "pooled": {
+        "brier": {
+          "absolute_gain": 6.631803595539356e-07,
+          "candidate": 0.011372197601496773,
+          "reference": 0.011372860781856326,
+          "relative_gain_percent": 0.005831253650901444
+        },
+        "log_loss": {
+          "absolute_gain": 2.2672002904447373e-05,
+          "candidate": 0.05710270674331623,
+          "reference": 0.05712537874622068,
+          "relative_gain_percent": 0.039688144572603494
+        },
+        "rows": 27688883
+      },
+      "positive_log_loss_days": 18,
+      "negative_log_loss_days": 2,
+      "five_session_block_bootstrap": {
+        "blocks_per_replicate": 4,
+        "brier": {
+          "absolute_gain_ci95": [
+            5.212486344060954e-07,
+            7.817174027091942e-07
+          ],
+          "relative_gain_percent_ci95": [
+            0.004094438590500032,
+            0.006982264866069717
+          ]
+        },
+        "confidence_level": 0.95,
+        "effective_block_sessions": 5,
+        "log_loss": {
+          "absolute_gain_ci95": [
+            1.2824412459613215e-05,
+            2.9200169800513475e-05
+          ],
+          "relative_gain_percent_ci95": [
+            0.02056939940685759,
+            0.05275871537173114
+          ]
+        },
+        "method": "paired_moving_session_block_bootstrap",
+        "replicates": 10000,
+        "requested_block_sessions": 5,
+        "seed": 20261027,
+        "sessions_per_replicate": 20,
+        "wraps_date_range": false
+      },
+      "positive_block_interval": true,
+      "supports_positive_incremental_prediction": true,
+      "limitations": [
+        "Dependent bins are not independent experiments; no independent-bin p-values are computed.",
+        "Twenty dates contain only about four non-overlapping five-session blocks; intervals remain approximate.",
+        "The moving-block interval uses overlapping consecutive sessions without wrapping; finite-sample edge weighting and regime changes can affect it.",
+        "Results are conditional on the frozen model, the observed coverage cohort and sampled intraday window.",
+        "Predictive loss improvement establishes neither causal impact nor trading profitability.",
+        "SIRS infection and refractory durations are predeclared state definitions, not fitted recovery or immunity rates.",
+        "Directed nonnegative transmission coefficients measure conditional predictive associations, not causal venue influence."
+      ]
+    }
+  }
+}

@@ -1,0 +1,308 @@
+{
+  "version": 1,
+  "created_utc": "2026-11-02T23:41:26.237550+00:00",
+  "derived_publication_snapshot": true,
+  "scope": "Aggregate summaries, sanitized audit snapshots and unchanged aggregate PNGs; no raw/tick/grid/sampled market observations.",
+  "source_artifacts": [
+    {
+      "path": "out/aapl_multi_event/class_summary.csv",
+      "sha256": "cf66dc99375e4675ea8b9a8177086eae9dc1fbf751ef1f87141a62e28590b5ac",
+      "bytes": 2036662
+    },
+    {
+      "path": "out/aapl_multi_event/event_excess.csv",
+      "sha256": "95d84c75fa2e621c4d5d701c7f71f107f5fabb71673b407601125eb87d72438c",
+      "bytes": 17065968
+    },
+    {
+      "path": "out/aapl_multi_event/event_freshness_sensitivity.png",
+      "sha256": "e9a06c9be442028e07bfa52f15ccae0b9f7705974e9dadc6becc62cf9c5c7fe0",
+      "bytes": 98511
+    },
+    {
+      "path": "out/aapl_multi_event/event_support.png",
+      "sha256": "9d9f9cb31a6ee548b5e4647a2038b933374b0c23e24709d40ef27fc1c5894c46",
+      "bytes": 82018
+    },
+    {
+      "path": "out/aapl_multi_event/findings.json",
+      "sha256": "e36c14711b44bcce923d5071c0971604fe1364c3b172341c44745a3dcf8aa6c7",
+      "bytes": 436299
+    },
+    {
+      "path": "out/aapl_multi_event/result_audit.json",
+      "sha256": "ee5be9adaa04051278836624c3ca341317dd8507ab58dd010f983ea4062bcf10",
+      "bytes": 4418
+    },
+    {
+      "path": "out/aapl_multi_event/wwdc_excess.png",
+      "sha256": "6a0d96ecde1be83793d4146c4c192621ab67b6770e6a707803ffc02a406a99bf",
+      "bytes": 68731
+    },
+    {
+      "path": "out/aapl_stationarity/findings.json",
+      "sha256": "4a50f9cfb16a58250152ef33966e496b9ea061ad1806a92187e755443b92bc22",
+      "bytes": 13856
+    },
+    {
+      "path": "out/aapl_stationarity/result_audit.json",
+      "sha256": "3d3e9d90dc87326bf7b9e652867fdb3174de7aa3944df7d7ba78d2bc733d1179",
+      "bytes": 4904
+    },
+    {
+      "path": "out/aapl_stationarity/stationarity_classifications.png",
+      "sha256": "80d9058a40f43ddf6873980f52e9e0a3bcd7b9a53dfaa8b914ab533a9c8715a3",
+      "bytes": 98807
+    },
+    {
+      "path": "out/aapl_stationarity/stationarity_coverage.png",
+      "sha256": "1b021ee49c4f1bd1ebc2e67b76b5130e751bc5a8e4e7b8882c3969bdaa6eab56",
+      "bytes": 86072
+    },
+    {
+      "path": "out/latency/findings.json",
+      "sha256": "914641b4b56a7f1f89e469b6f4bab24a8285d70df09e5f2f07d411d07e0eac41",
+      "bytes": 47810
+    },
+    {
+      "path": "out/latency/latency_heatmap.png",
+      "sha256": "7f7f9a912528c17e7e2008323bde494cd6896c91bc6d68b9f4e6a0c512a7a148",
+      "bytes": 168302
+    },
+    {
+      "path": "out/latency/result_audit.json",
+      "sha256": "5491f679c4888682891bd865b94ecb32dba7502da89ff7363fe278674baf39ef",
+      "bytes": 1452
+    },
+    {
+      "path": "out/team_code_corrections/event_study_correction.png",
+      "sha256": "2b7156f68083ec2528fd86f693d74e1419216d7c82e0c8286fd0e8dc27815ca4",
+      "bytes": 263815
+    },
+    {
+      "path": "out/team_code_corrections/findings.json",
+      "sha256": "8145cb26bdd819541bc322c1e680e9b76bb7c152d114b62570ffe276eda185a3",
+      "bytes": 6606
+    },
+    {
+      "path": "out/team_code_corrections/result_audit.json",
+      "sha256": "83c2838df8e12df4a0912fd7e81e8693de38660332b5f6eccdb0248e788bc416",
+      "bytes": 2568
+    },
+    {
+      "path": "out/team_code_corrections/summary.json",
+      "sha256": "1f5c08121c79492cd249df777d42ac54237de6790d985132e9bcd92899062827",
+      "bytes": 3199
+    }
+  ],
+  "bundle_artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "2bb06d8dc05663ca59dc5a6d6bf443f5f97e80830d7417bb5371bc769e232495",
+      "bytes": 7143,
+      "source_artifacts": [
+        "out/aapl_multi_event/class_summary.csv",
+        "out/aapl_multi_event/event_excess.csv",
+        "out/aapl_multi_event/event_freshness_sensitivity.png",
+        "out/aapl_multi_event/event_support.png",
+        "out/aapl_multi_event/findings.json",
+        "out/aapl_multi_event/result_audit.json",
+        "out/aapl_multi_event/wwdc_excess.png",
+        "out/aapl_stationarity/findings.json",
+        "out/aapl_stationarity/result_audit.json",
+        "out/aapl_stationarity/stationarity_classifications.png",
+        "out/aapl_stationarity/stationarity_coverage.png",
+        "out/latency/findings.json",
+        "out/latency/latency_heatmap.png",
+        "out/latency/result_audit.json",
+        "out/team_code_corrections/event_study_correction.png",
+        "out/team_code_corrections/findings.json",
+        "out/team_code_corrections/result_audit.json",
+        "out/team_code_corrections/summary.json"
+      ],
+      "derivation": "Human-readable account of these final aggregate results, with relative bundle-only links."
+    },
+    {
+      "path": "audits.json",
+      "sha256": "6bbb8ca85c85bd85ecdb89222f243bcb8f1dd26b9dc90590b123c1e92c72e6ad",
+      "bytes": 3733,
+      "source_artifacts": [
+        "out/team_code_corrections/result_audit.json",
+        "out/latency/result_audit.json",
+        "out/aapl_multi_event/result_audit.json",
+        "out/aapl_stationarity/result_audit.json"
+      ],
+      "derivation": "Sanitized whitelisted aggregate audit snapshots; source audit hashes retained, absolute paths and full output/raw registries omitted."
+    },
+    {
+      "path": "figures/correction_ratios.png",
+      "sha256": "2b7156f68083ec2528fd86f693d74e1419216d7c82e0c8286fd0e8dc27815ca4",
+      "bytes": 263815,
+      "source_artifacts": [
+        "out/team_code_corrections/event_study_correction.png"
+      ],
+      "derivation": "Byte-identical final aggregate scientific PNG."
+    },
+    {
+      "path": "figures/event_freshness.png",
+      "sha256": "e9a06c9be442028e07bfa52f15ccae0b9f7705974e9dadc6becc62cf9c5c7fe0",
+      "bytes": 98511,
+      "source_artifacts": [
+        "out/aapl_multi_event/event_freshness_sensitivity.png"
+      ],
+      "derivation": "Byte-identical final aggregate scientific PNG."
+    },
+    {
+      "path": "figures/event_support.png",
+      "sha256": "9d9f9cb31a6ee548b5e4647a2038b933374b0c23e24709d40ef27fc1c5894c46",
+      "bytes": 82018,
+      "source_artifacts": [
+        "out/aapl_multi_event/event_support.png"
+      ],
+      "derivation": "Byte-identical final aggregate scientific PNG."
+    },
+    {
+      "path": "figures/native_latency.png",
+      "sha256": "7f7f9a912528c17e7e2008323bde494cd6896c91bc6d68b9f4e6a0c512a7a148",
+      "bytes": 168302,
+      "source_artifacts": [
+        "out/latency/latency_heatmap.png"
+      ],
+      "derivation": "Byte-identical final aggregate scientific PNG."
+    },
+    {
+      "path": "figures/stationarity_classifications.png",
+      "sha256": "80d9058a40f43ddf6873980f52e9e0a3bcd7b9a53dfaa8b914ab533a9c8715a3",
+      "bytes": 98807,
+      "source_artifacts": [
+        "out/aapl_stationarity/stationarity_classifications.png"
+      ],
+      "derivation": "Byte-identical final aggregate scientific PNG."
+    },
+    {
+      "path": "figures/stationarity_coverage.png",
+      "sha256": "1b021ee49c4f1bd1ebc2e67b76b5130e751bc5a8e4e7b8882c3969bdaa6eab56",
+      "bytes": 86072,
+      "source_artifacts": [
+        "out/aapl_stationarity/stationarity_coverage.png"
+      ],
+      "derivation": "Byte-identical final aggregate scientific PNG."
+    },
+    {
+      "path": "figures/wwdc_excess.png",
+      "sha256": "6a0d96ecde1be83793d4146c4c192621ab67b6770e6a707803ffc02a406a99bf",
+      "bytes": 68731,
+      "source_artifacts": [
+        "out/aapl_multi_event/wwdc_excess.png"
+      ],
+      "derivation": "Byte-identical final aggregate scientific PNG."
+    },
+    {
+      "path": "tables/correction_ratios.csv",
+      "sha256": "45dfa5d4180d921760b798e0608437c8b43f94a3ce7ff55467782ec136e95db8",
+      "bytes": 480,
+      "source_artifacts": [
+        "out/team_code_corrections/summary.json"
+      ],
+      "derivation": "All event_study_diagnostics rows; select stage,symbol,maximum_absolute_mean_share,rows,finite_rows.",
+      "rows": 9
+    },
+    {
+      "path": "tables/correction_summary.json",
+      "sha256": "1cfdbd1e481d1132118e8d7642419772f4b58429fcc5d5533d43e6c88035c055",
+      "bytes": 868,
+      "source_artifacts": [
+        "out/team_code_corrections/summary.json",
+        "out/team_code_corrections/findings.json"
+      ],
+      "derivation": "Select aggregate counts and changed-task peak shift from final summaries; original full-day/IEX rerun is not claimed."
+    },
+    {
+      "path": "tables/event_class_latency.csv",
+      "sha256": "9e44d87efd1387a48d9b7bfda3c4bc69fb923e2c68802859005fa90e1279b302",
+      "bytes": 4825,
+      "source_artifacts": [
+        "out/aapl_multi_event/class_summary.csv"
+      ],
+      "derivation": "Filter primary30,latency_us,10ms; all scopes/clocks/ages/statuses retained. n_events_excluded=n_events_expected-n_events. Omit nested excluded_events/leave_one_year_out and constant weighting; retain leave-one-year-out extrema.",
+      "rows": 30
+    },
+    {
+      "path": "tables/event_latency_excess.csv",
+      "sha256": "57e52b6e83228d086d87b5395165372ee3a81b207aafa652a2866d6a3453addc",
+      "bytes": 56454,
+      "source_artifacts": [
+        "out/aapl_multi_event/event_excess.csv"
+      ],
+      "derivation": "Filter primary30,latency_us,10ms; all clocks/ages/statuses retained. controls_excluded=controls_expected-controls_valid. Omit nested per-control arrays; retain reason and scalar aggregates.",
+      "rows": 168
+    },
+    {
+      "path": "tables/event_scope.json",
+      "sha256": "6152f6b5fe1144ba1ee16b6c9261b71f6514ea914ff317126540c7eddcbd2d81",
+      "bytes": 3407,
+      "source_artifacts": [
+        "out/aapl_multi_event/findings.json"
+      ],
+      "derivation": "Select event/bundle/control counts, primary support, clock-sensitive interpretation and limitations."
+    },
+    {
+      "path": "tables/latency_primary.csv",
+      "sha256": "30ea0bd8e66d4246b1cc96500c1950aae4aa0a6394c66ab9a3fcd35b7a2a275f",
+      "bytes": 1586,
+      "source_artifacts": [
+        "out/latency/findings.json"
+      ],
+      "derivation": "All six primary_latency_by_clock_symbol aggregate rows.",
+      "rows": 6
+    },
+    {
+      "path": "tables/latency_scope.json",
+      "sha256": "97ed386d5ea7a9b08bda13d55cd698dab74121336784ae8127cb5f6812c67db6",
+      "bytes": 2878,
+      "source_artifacts": [
+        "out/latency/findings.json"
+      ],
+      "derivation": "Select primary scope, estimate definitions, primary regime support and limitations; omit absolute output-root fields."
+    },
+    {
+      "path": "tables/stationarity_coverage.csv",
+      "sha256": "c737124b9d0fbc7cf20e7e341122b11d432d658622aa09f985f2e0c13d634805",
+      "bytes": 568,
+      "source_artifacts": [
+        "out/aapl_stationarity/findings.json"
+      ],
+      "derivation": "All coverage_summary clock/freshness aggregate rows; no sampled paths.",
+      "rows": 6
+    },
+    {
+      "path": "tables/stationarity_global.csv",
+      "sha256": "e44a2f8b8d2edf9db3a93e6c3bbfd8e7264c4736798e6d78548aaa34910236f9",
+      "bytes": 302,
+      "source_artifacts": [
+        "out/aapl_stationarity/findings.json"
+      ],
+      "derivation": "All global_unique_test_summary rows; nominal classification and separate Holm counts.",
+      "rows": 3
+    },
+    {
+      "path": "tables/stationarity_summary.json",
+      "sha256": "f34c8ef9bda4e557b7104bc14ed7335a7007590f33dbbdf4090c1fa725ac289e",
+      "bytes": 4631,
+      "source_artifacts": [
+        "out/aapl_stationarity/findings.json"
+      ],
+      "derivation": "Select counts, global Holm family, skip/bound counts, conclusion and limitations; no individual sample/test arrays."
+    }
+  ],
+  "manifest_self_hash": "Excluded to avoid a digest cycle; bundle_checks.json records this manifest SHA-256.",
+  "omissions": [
+    "Raw DBN/tick/event data",
+    "Regular-grid or sampled price arrays",
+    "Serialized models",
+    "Full HTML reports tied to local output directories",
+    "Giant summary JSON/nested exclusion/control/year arrays"
+  ],
+  "source_files_modified": false,
+  "new_market_data_requests": false
+}

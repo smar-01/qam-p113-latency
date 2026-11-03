@@ -1,0 +1,56 @@
+{
+  "status": "completed",
+  "audit_status": "passed",
+  "counts": {
+    "source_groups": 104,
+    "diagnostic_windows": 8064,
+    "unique_series": 3631,
+    "unique_test_pairs": 10893,
+    "tested_pairs": 954,
+    "skipped_pairs": 9939,
+    "source_raw_requests": 640,
+    "source_raw_records": 33338763
+  },
+  "testable_unique_price_paths": 318,
+  "adf_holm": {
+    "unique_adf_tests_in_family": 954,
+    "alpha": 0.05,
+    "nominal_adf_rejections": 388,
+    "holm_adf_rejections": 322,
+    "scope": "ADF correction across unique computed series/transformation/regression tests only; no request-row replication and no adjusted joint ADF/KPSS classification."
+  },
+  "kpss_relation_counts": {
+    "=": 95,
+    "<=": 559,
+    ">=": 300
+  },
+  "skip_reason_counts": {
+    "too_short": 9939
+  },
+  "automatic_transformation_applied": false,
+  "main_latency_study_changed": false,
+  "readout_conclusion": "Log returns fit the nominal stationarity pattern more often than log price levels on these selected segments. Of 318 testable log-return paths, 304 were stationarity compatible and 14 produced conflicting rejections. Their ADF unit-root null was rejected after global Holm correction in 318 cases. Neither clock supplied a 300-point contiguous price run at the primary 250-ms freshness setting; the tested evidence comes from longer-age sensitivities. The 318 testable paths share market and event contexts and are not 318 independent experiments. No transformation is applied automatically, and the native level-based latency matcher remains unchanged.",
+  "interpretation": "Exploratory segment-specific diagnostics; nominal classifications are not a transformation rule or causal event-class comparison.",
+  "limitations": [
+    "The original latency/event study is unchanged; this diagnostic does not test irregular latency observations or automatically transform main-study inputs.",
+    "Within each planned one-second price window, select the longest strict no-gap supported run using quality alone; ties use the earliest run. Invalid intervals are not interpolated or stitched together.",
+    "Three hundred one-second observations are approximately five minutes (299 seconds between endpoints); 600 observations are approximately ten minutes. The 600-point flag is descriptive, not validation of long-span stationarity.",
+    "Log-level c and log-return c are separate diagnostics. The log-level ct specification is a deterministic-trend sensitivity, paired with ct in both ADF and KPSS.",
+    "Nominal joint classifications use opposite null hypotheses at the stated alpha; failing to reject is not proof of a null hypothesis.",
+    "ADF Holm adjustment uses unique computed tests only. It does not convert the displayed nominal ADF/KPSS matrix into a jointly adjusted classification.",
+    "KPSS p-values are table-bounded near 0.01 and 0.10; preserve bound relations and warnings rather than interpreting endpoints as precise probabilities.",
+    "A large number of one-second samples does not replace a long time span. Event-related breaks and market microstructure can affect test behavior.",
+    "The longest supported segment can represent only a fraction of a scheduled window; conclusions concern that selected segment, not the whole session.",
+    "Requests, identical price paths and related event bundles are dependent; grouped classifications do not establish event-type causal effects or independent replication counts.",
+    "Stationarity diagnostics alone do not select a model transformation. Differencing a price path can change the native first-passage price-target estimand.",
+    "Exploratory diagnostics added after inspecting the latency study, not a preregistered event-effect test.",
+    "An eligible subwindow is not proof that the complete thirty-minute window is observable or stationary.",
+    "Five minutes is the minimum tested span; ten-minute runs are flagged descriptively, not a statistical power guarantee.",
+    "Dense sampling does not replace a long time span; short intraday windows limit unit-root inference.",
+    "Pre/post splitting avoids pooling the scheduled event boundary but cannot remove other structural breaks.",
+    "Per-venue stationarity support is not joint common-venue support for a VAR or cointegration model.",
+    "Irregular and censored latency observations are not subjected to regular-time ADF/KPSS tests.",
+    "Neither a nominal test classification nor differencing repairs missing books, ambiguous records or clock differences.",
+    "No transformation is applied to the audited latency study and no event-level causal effect is estimated here."
+  ]
+}

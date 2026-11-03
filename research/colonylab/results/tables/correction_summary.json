@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "source_requests": 50,
+  "raw_records": 4988927,
+  "midpoint_series_checked": 300,
+  "float_midpoint_events": 2793998,
+  "exact_midpoint_events": 2793876,
+  "float_only_phantom_events": 122,
+  "reaction_tasks_compared": 1200,
+  "reaction_outputs_identical": true,
+  "leadlag_pair_tasks": 600,
+  "leadlag_peak_lag_changed_tasks": 195,
+  "interpretation": "Exact same quotes isolate midpoint arithmetic and fixed-bin cross-product changes; full-support and quality policy changes are reported separately. Missing original full-day raw files prevent rerunning the published three-day results or IEX.",
+  "no_trading_or_causal_claim": true,
+  "median_absolute_peak_shift_among_changed_us": 20.0,
+  "scope_note": "Shared saved ten-date/five-venue/three-symbol windows; the teammates original three full-day/IEX source files are unavailable."
+}

@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "derived_snapshot": true,
+  "source_artifacts_rehashed": 18,
+  "bundle_artifacts_rehashed": 19,
+  "relative_links_checked": 20,
+  "relative_links_all_resolve": true,
+  "absolute_paths_and_common_secret_markers_absent": true,
+  "raw_or_sampled_market_observations_included": false,
+  "png_copies_byte_identical": true,
+  "html_reports_copied": false,
+  "provenance_sha256": "1d1a913f00c6480b7c6a0e2014330c8624156382392a3c14c17a89b780107252",
+  "source_files_modified": false,
+  "new_market_data_requests": false,
+  "csv_rows": {
+    "tables/correction_ratios.csv": 9,
+    "tables/event_class_latency.csv": 30,
+    "tables/event_latency_excess.csv": 168,
+    "tables/latency_primary.csv": 6,
+    "tables/stationarity_coverage.csv": 6,
+    "tables/stationarity_global.csv": 3
+  },
+  "files": 21,
+  "total_bytes_before_this_checkfile": 965082,
+  "git_ignore_files_checked": 21,
+  "git_ignored_files": [],
+  "text_files_canonical_lf": 14,
+  "text_files_are_lf": true,
+  "png_hashes_unchanged": true,
+  "git_clean_filter_bytes_match": true
+}
