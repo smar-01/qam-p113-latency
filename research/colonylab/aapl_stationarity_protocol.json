@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "study": "aapl_saved_event_stationarity_diagnostics",
+  "source_study_dir": "out/aapl_multi_event",
+  "step_ns": 1000000000,
+  "windows": [
+    {"name": "pre30", "start_minute": -30, "end_minute": 0},
+    {"name": "post30", "start_minute": 0, "end_minute": 30}
+  ],
+  "minimum_observations": 300,
+  "longer_run_points": 600,
+  "alpha": 0.05,
+  "selection": "earliest_longest_contiguous_quality_supported_run",
+  "sampling": "strict_prior_native_quote_on_one_second_grid",
+  "barriers": "split_on_every_native_quality_barrier_even_between_valid_grid_endpoints",
+  "transformations": [
+    {"transformation": "log_level", "regression": "c"},
+    {"transformation": "log_level", "regression": "ct"},
+    {"transformation": "log_return", "regression": "c"}
+  ],
+  "adf_autolag": "BIC",
+  "adf_maxlag": "min(ceil(12*(n/100)**0.25),n//4)",
+  "kpss_nlags": "auto",
+  "multiplicity": "nominal_paired_classifications_exploratory; global_Holm_ADF_across_unique_test_pairs; KPSS_table_boundaries_preserved",
+  "purpose": "diagnose_regular_price_model_inputs_without_altering_native_first_passage_latency",
+  "limitations": [
+    "Exploratory diagnostics added after inspecting the latency study, not a preregistered event-effect test.",
+    "An eligible subwindow is not proof that the complete thirty-minute window is observable or stationary.",
+    "Five minutes is the minimum tested span; ten-minute runs are flagged descriptively, not a statistical power guarantee.",
+    "Dense sampling does not replace a long time span; short intraday windows limit unit-root inference.",
+    "Pre/post splitting avoids pooling the scheduled event boundary but cannot remove other structural breaks.",
+    "Per-venue stationarity support is not joint common-venue support for a VAR or cointegration model.",
+    "Irregular and censored latency observations are not subjected to regular-time ADF/KPSS tests.",
+    "Neither a nominal test classification nor differencing repairs missing books, ambiguous records or clock differences.",
+    "No transformation is applied to the audited latency study and no event-level causal effect is estimated here."
+  ]
+}

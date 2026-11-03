@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "source_artifacts_rehashed": 20,
+  "bundle_artifacts_rehashed": 21,
+  "relative_links_checked": 24,
+  "existing_parent_bundle_link": "../README.md; verify after copy under results/earlier",
+  "all_internal_links_resolve": true,
+  "text_is_canonical_lf": true,
+  "png_copies_byte_identical": true,
+  "absolute_machine_paths_and_secret_markers_absent": true,
+  "source_files_modified": false,
+  "raw_or_individual_observations_included": false,
+  "provenance_sha256": "ee88879da77028e94d69369225ad7257c6be8593490591d716bd01f5c24ef49a"
+}

@@ -1,0 +1,4 @@
+transformation,regression,unique_series,tested,stationarity_compatible,unit_root_compatible,conflicting,inconclusive,not_tested,adf_nominal_rejections,adf_holm_rejections
+log_level,c,3631,318,4,277,29,8,3313,33,2
+log_level,ct,3631,318,3,278,34,3,3313,37,2
+log_return,c,3631,318,304,0,14,0,3313,318,318

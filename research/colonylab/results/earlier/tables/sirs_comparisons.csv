@@ -1,0 +1,4 @@
+reference_model,candidate_model,rows,relative_log_loss_gain_percent,block_ci95_lower_percent,block_ci95_upper_percent,positive_log_loss_days,negative_log_loss_days,supports_positive_incremental_prediction
+independent_mbo_hazard,sirs_network,27688883,0.06010489296012952,0.03925499882882064,0.0738672658966774,20,0,True
+logistic_network,sirs_network,27688883,-0.3882750996309021,-0.4302164371118521,-0.3393577507787845,0,20,False
+past_shifted_sirs,sirs_network,27688883,0.039688144572603494,0.02056939940685759,0.05275871537173114,18,2,True

@@ -1,0 +1,44 @@
+{
+  "status": "completed",
+  "audit_status": "passed",
+  "measurement": "native_mbp1_midpoint_first_passage",
+  "event_anchors": 28,
+  "event_bundles": 18,
+  "control_trials": 140,
+  "event_class_anchor_counts": {
+    "earnings_release": 10,
+    "earnings_call": 10,
+    "wwdc": 5,
+    "product_launch": 3
+  },
+  "discovery_event_ids": [
+    "aapl_wwdc26_keynote_20260608"
+  ],
+  "primary_clock": "ts_recv",
+  "primary_age_ms": 250,
+  "primary_horizon_ms": 10,
+  "primary_supported_class_comparisons": 0,
+  "publisher_timed_earnings_release_anchors": 10,
+  "clock_sensitivity_conclusion": "At the predeclared 5000-ms freshness sensitivity, Product keynote class medians have opposite signs on receive and exchange clocks. Their direction is therefore sensitive to the clock definition; these estimates do not establish a stable clock-independent event-class finding. The primary 250-ms controlled comparisons remain unsupported.",
+  "interpretation": "Descriptive matched-control excess changes by event, reporting bundle and year; no causal effect, confidence interval or p-value.",
+  "limitations": [
+    "Reference days are randomly drawn exposure controls, not certified news-free or randomized corporate announcements.",
+    "The event calendar is sourced but is not a complete blackout list of all Apple announcements or macroeconomic releases.",
+    "A scheduled keynote/call or publisher-declared release timestamp is not the exact nanosecond news reached every market participant.",
+    "Earnings-call prewindows may already contain the earnings release; overlapping anchors share one bundle and do not add independent events.",
+    "Afterhours activity and liquidity differ from regular hours. Same-clock controls do not identify a causal event-class effect.",
+    "Conditional matched latencies require accompanying match rates, full follow-up and explicit missing-support counts.",
+    "Quote-age policies affect observed cohorts, especially in quiet afterhours controls; sensitivity results do not replace an unsupported primary estimate.",
+    "Receive-clock delays include feed transport; exchange clocks need not be perfectly synchronized. Counting price matches is not causal information share.",
+    "The 2026 WWDC case informed this extension and is labelled discovery rather than counted as independent historical confirmation.",
+    "Each event anchor requires every one of its five frozen matched-control changes; missing support is not replaced or silently dropped.",
+    "Corporate-event bundles and calendar years, rather than quotes, define dependence and sample size.",
+    "Discovery events are kept separate from the historical primary summaries.",
+    "Class summaries with incomplete support describe supported bundles only, with planned and excluded counts retained.",
+    "A paired-year class comparison requires every planned bundle in both class/year strata; incomplete years remain explicitly excluded.",
+    "Cross-session event classes remain confounded with trading hours even after same-clock matched controls.",
+    "Scheduled call/keynote starts and filing acceptance times need not identify first public information.",
+    "Different clocks, freshness thresholds and horizons can define different observable event populations.",
+    "Leave-one-year-out ranges are sensitivity summaries, not confidence intervals; no p-values or causal effects are reported."
+  ]
+}

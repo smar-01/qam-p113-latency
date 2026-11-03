@@ -1,0 +1,23 @@
+# Frozen before retrieval or inspection of the October 5–16 outcomes.
+# Keep the original three symbols while extending dates, duration and venues.
+name = "five-venue-ten-date-replication"
+datasets = ["XNAS.ITCH", "XNYS.PILLAR", "BATS.PITCH", "ARCX.PILLAR", "EDGX.PITCH"]
+symbols = ["AAPL", "MSFT", "SPY"]
+schemas = ["mbp-1"]
+training_days = ["2026-10-05", "2026-10-06", "2026-10-07", "2026-10-08", "2026-10-09"]
+held_out_days = ["2026-10-12", "2026-10-13", "2026-10-14", "2026-10-15", "2026-10-16"]
+start_time_utc = "14:00:00"
+minutes = 10
+# User reports that historical downloads are included in their access.
+# Skip price metadata and monetary ceilings; retain record/byte size bounds.
+billing_assumed_included = true
+workers = 4
+record_limit_per_request = 1200000
+max_billable_bytes_per_request = 75000000
+data_dir = "data/wide_network"
+out_dir = "out/wide_network"
+
+# Inherited fixed settings: training 75th-percentile/half-cent shocks,
+# 100 ms shock separation, receive-clock analysis, 2 ms minimum directed lead,
+# 10/100/1000 ms outcomes, 5/15/30 second timing placebos, fixed L2 C=1 models.
+# Public venue-volume and maker/RPI data remain retrospective context.

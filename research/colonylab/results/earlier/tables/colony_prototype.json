@@ -1,0 +1,125 @@
+{
+  "dataset": "EQUS.MINI",
+  "schema": "mbp-1",
+  "synthetic": false,
+  "input_records": 21687,
+  "executed_trade_events": 1149,
+  "analysis_clock": "ts_recv",
+  "eligible_events": 430,
+  "train_events": 266,
+  "test_events": 129,
+  "embargo_events": 35,
+  "unknown_direction_test_events": 40,
+  "test_direction_sources": {
+    "estimated_prior_midquote": 89,
+    "unknown_not_inferred": 40
+  },
+  "window_ms": 1000,
+  "horizons_ms": [
+    1,
+    10,
+    100,
+    1000,
+    10000,
+    60000
+  ],
+  "requested_clusters": 3,
+  "fitted_clusters": 3,
+  "gmm_converged": true,
+  "feature_columns": [
+    "log_trade_count",
+    "log_total_volume",
+    "log_mean_size",
+    "size_cv",
+    "signed_volume_imbalance",
+    "known_direction_fraction",
+    "sign_persistence",
+    "log_mean_gap_ms",
+    "gap_cv",
+    "past_return_bps",
+    "past_volatility_bps",
+    "log_last_trade_age_ms",
+    "past_spread_bps",
+    "past_depth_imbalance"
+  ],
+  "notes": [],
+  "limitations": [
+    "Colonies describe prior execution contexts; they do not identify traders, funds, parent orders, or investment styles.",
+    "This is descriptive association, not causal impact, profitable trading evidence, or a measurement of exchange/infrastructure latency.",
+    "Feed B/A sides are preserved; missing/unknown sides use a strictly preceding fresh midpoint comparison when available, and remain unknown at midpoint ties. This estimated sign is not a verified aggressor side. Tick diagnostics never determine signed responses.",
+    "Chronological train/test split and an outcome-horizon embargo prevent direct response leakage; no tuning or independent multi-day replication has been performed.",
+    "Response events overlap and are dependent; effective event counts describe probability concentration, not independent sample sizes. No inferential confidence intervals are claimed.",
+    "Raw response differences can reflect liquidity, volatility, time of day, symbol composition and common shocks; this MVP does not control for those confounders.",
+    "Prices use the last unambiguous observation at or before the horizon, with a strictly pre-event baseline; sparse updates limit horizon resolution. Staleness excludes rows and can introduce selection effects.",
+    "An invalid, crossed or conflicting quote timestamp blocks prior quotes until a subsequent valid quote; unknown horizon states are counted as missing. The price staleness cap is fixed at 1,000ms independently of the feature window.",
+    "Features and prices are grouped by symbol, publisher/feed and New York calendar date; the MVP does not classify exchange sessions or handle corporate actions and halts.",
+    "Training features/scaling/model use only past-window observations, with equal timestamps excluded from that window. GMM probabilities are fitted mixture responsibilities, not calibrated identity probabilities.",
+    "Within an earlier tied trade timestamp, context prices use the arithmetic mean and sign-persistence transitions touching ties are excluded; no submission ordering is inferred.",
+    "The current study measures within-feed response; multi-feed synchronization and lead/lag identification require a separate design.",
+    "The receive clock is preferred when present so later-received records cannot enter earlier features; otherwise event timestamps are used and late arrival/reordering remains a limitation. No clock measures pure exchange latency.",
+    "Feed-specific quality flags and trading conditions are not yet audited or filtered; live-data results require this review before substantive conclusions.",
+    "EQUS.MINI is treated as one anonymized aggregate publisher; publisher_id is not an originating exchange and no venue comparison is possible."
+  ],
+  "coverage": [
+    {
+      "horizon_ms": 1,
+      "test_events": 129,
+      "known_direction_test_events": 89,
+      "unknown_direction_test_events": 40,
+      "missing_horizon_test_events": 0,
+      "stale_horizon_test_events": 0,
+      "usable_test_events": 89,
+      "coverage_of_known_direction": 1.0
+    },
+    {
+      "horizon_ms": 10,
+      "test_events": 129,
+      "known_direction_test_events": 89,
+      "unknown_direction_test_events": 40,
+      "missing_horizon_test_events": 0,
+      "stale_horizon_test_events": 0,
+      "usable_test_events": 89,
+      "coverage_of_known_direction": 1.0
+    },
+    {
+      "horizon_ms": 100,
+      "test_events": 129,
+      "known_direction_test_events": 89,
+      "unknown_direction_test_events": 40,
+      "missing_horizon_test_events": 0,
+      "stale_horizon_test_events": 0,
+      "usable_test_events": 89,
+      "coverage_of_known_direction": 1.0
+    },
+    {
+      "horizon_ms": 1000,
+      "test_events": 129,
+      "known_direction_test_events": 89,
+      "unknown_direction_test_events": 40,
+      "missing_horizon_test_events": 0,
+      "stale_horizon_test_events": 0,
+      "usable_test_events": 89,
+      "coverage_of_known_direction": 1.0
+    },
+    {
+      "horizon_ms": 10000,
+      "test_events": 129,
+      "known_direction_test_events": 89,
+      "unknown_direction_test_events": 40,
+      "missing_horizon_test_events": 0,
+      "stale_horizon_test_events": 0,
+      "usable_test_events": 89,
+      "coverage_of_known_direction": 1.0
+    },
+    {
+      "horizon_ms": 60000,
+      "test_events": 129,
+      "known_direction_test_events": 89,
+      "unknown_direction_test_events": 40,
+      "missing_horizon_test_events": 21,
+      "stale_horizon_test_events": 0,
+      "usable_test_events": 68,
+      "coverage_of_known_direction": 0.7640449438202247
+    }
+  ]
+}

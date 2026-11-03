@@ -1,0 +1,92 @@
+{
+  "status": "passed",
+  "created_utc": "2026-11-03T00:25:18.458598+00:00",
+  "source_commit": "28713f524da6b1e57113d7ddcb883a963efd835b",
+  "sam_base_commit": "54c69cd061e1e2d7bb9267aaeef59497a1a310e1",
+  "installation": "Fresh isolated Python 3.11 environment installed from requirements-research.txt; pip check passed.",
+  "python_packages": {
+    "databento": "0.88.0",
+    "databento-dbn": "0.70.0",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.0",
+    "statsmodels": "0.14.4",
+    "matplotlib": "3.10.3",
+    "pyarrow": "26.0.0",
+    "pytest": "9.1.0"
+  },
+  "tests": {
+    "command": "python -m pytest -q -p no:cacheprovider --junitxml .tmp/combined-tests.xml",
+    "tests": 1231,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sam_tests": 47,
+    "colonylab_tests": 1184,
+    "junit_sha256": "3b90ffd030a4ed1632cee686db92ff62940a128dc6cf47b1f7c4e088b4aec59d",
+    "note": "A workspace-local temporary directory outside the nested checkout was used on Windows to keep fixture paths within OS limits."
+  },
+  "entrypoint_smokes": [
+    {
+      "command": "python analyze.py --synthetic --clock both --out .tmp/smoke-p113",
+      "exit_code": 0,
+      "output_dir": ".tmp/smoke-p113",
+      "output_files": 29,
+      "mode": "numerical_only",
+      "event_study_support": "legacy",
+      "clocks": {
+        "ts_recv": {
+          "summary_rows": 6,
+          "pair_event_rows": 239792,
+          "synthetic_symbol_label": "SYN",
+          "synthetic_label_evidence": ".tmp/smoke-p113/event_study_XNAS_SYN_ts_recv.csv",
+          "latency_and_leadlag_outputs_present": true
+        },
+        "ts_event": {
+          "summary_rows": 6,
+          "pair_event_rows": 239792,
+          "synthetic_symbol_label": "SYN",
+          "synthetic_label_evidence": ".tmp/smoke-p113/event_study_XNAS_SYN_ts_event.csv",
+          "latency_and_leadlag_outputs_present": true
+        }
+      },
+      "synthetic_evidence": "Explicit --synthetic invocation and SYN-labelled event-study files. Standalone analysis_mode.json records measurement rules, not a dataset field.",
+      "analysis_mode_sha256": "6553541ffacb7023a1175d26136cc9b29d182d5067e4144f4d06c2a639f14939"
+    },
+    {
+      "command": "python -m colonylab.cli demo --out .tmp/smoke-colonylab",
+      "exit_code": 0,
+      "output_dir": ".tmp/smoke-colonylab",
+      "output_files": 8,
+      "dataset": "SYNTHETIC",
+      "synthetic": true,
+      "input_records": 18000,
+      "gmm_converged": true,
+      "run_summary_sha256": "4fa21268307adc52c0e011f9b8467bc500523136fc829d423f961db0b4098d1a"
+    },
+    {
+      "command": "python research/colonylab/scripts/run_mbo_sir.py --help",
+      "exit_code": 0,
+      "output_files": 0,
+      "help_only": true
+    }
+  ],
+  "source_preservation": {
+    "colonylab_scientific_package_files_identical_to_source": 41,
+    "sam_package_and_entrypoint_files_unchanged": 10
+  },
+  "publication_checks": {
+    "bundle_artifact_hashes_verified_against_staged_blobs": 40,
+    "bundle_provenance_bindings_verified": 2,
+    "documentation_links_and_anchors_verified": 61,
+    "scope": "Five inherited blank EOF lines are preserved from the source snapshot; whitespace checks excluding blank-at-EOF pass."
+  },
+  "github_ci_configured": false,
+  "no_new_market_data_requests": true,
+  "historical_market_studies_rerun": false,
+  "limitations": [
+    "This validates source integration and offline synthetic behavior; historical raw-data audits remain evidence for their original saved runs.",
+    "Credentials, raw research data, complete local outputs and model caches are excluded from this public repository."
+  ]
+}

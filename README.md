@@ -4,6 +4,54 @@ Fordham QAM capstone (Fall 2026), client Databento. This project measures how
 quickly one venue's bid or ask reaches another venue's changed price, alongside
 midpoint responses, lead-lag diagnostics and descriptive volatility regimes.
 
+## Combined project and research studies
+
+The original standalone commands remain at the repository root. The complete
+ColonyLab research project is included under [`research/colonylab/`](research/colonylab/README.md),
+with its own source package, protocols, tests, comparison fixtures and aggregate
+results. Its scientific pipelines keep their project-relative paths.
+
+| Work | Start here |
+| --- | --- |
+| Standalone venue-latency analysis | The commands and measurement rules below |
+| Execution-context clustering, native-feed access and public market context | [ColonyLab overview](research/colonylab/README.md) |
+| Multi-date venue-network prediction and time/volume-candle comparisons | [Earlier study results](research/colonylab/results/earlier/README.md) |
+| Full-session MBO reconstruction and recurrent SIRS prediction | [SIRS design and findings](research/colonylab/README.md#full-session-mbo-venue-network-and-recurrent-sirs-test) |
+| Corrected-code comparison, native latency, Apple events and stationarity diagnostics | [Audited aggregate results](research/colonylab/results/README.md) |
+| Historical baseline and corrected comparison source | [Source provenance](research/colonylab/comparisons/README.md) |
+
+Use Python 3.11 for the validated combined environment. Run from this
+repository's root after activating your environment:
+
+```text
+python -m venv .venv
+# Activate .venv using your platform's normal activation command.
+python -m pip install -r requirements-research.txt
+python -m pytest
+python analyze.py --synthetic --clock both
+python -m colonylab.cli demo
+```
+
+`requirements-research.txt` installs the nested editable ColonyLab package and
+the combined dependency constraints. The root test command collects both
+`tests/` and `research/colonylab/tests/`; it excludes historical comparison
+fixtures from automatic collection. Tests and synthetic demonstrations need no
+API key or market-data downloads. See the [research setup notes](research/colonylab/CLOUD_SETUP.md)
+for environment and saved-data details.
+
+The imported `wide_network.toml`, `fresh_confirmation.toml` and `mbo_sir.toml`
+retain `billing_assumed_included = true` as the original account's historical
+acquisition policy. This does not establish free downloads or entitlement for
+another account. Review those settings and use the pipeline's explicit planning
+and acquisition controls before any live request; installation, tests and
+synthetic demonstrations do not download market data.
+
+The tracked results are aggregate publication snapshots. Credentials, raw
+market data, model caches and complete local output directories are excluded.
+Earlier results remain historical evidence; importing source does not rerun or
+revalidate a market-data study. The original `requirements.txt` below remains
+available for a separate standalone environment.
+
 ## Numerical and input corrections
 
 The standalone default is **numerical-only**. `analysis_mode.json` records the
@@ -30,7 +78,7 @@ unchanged.** Its matched medians are conditional on matching within the chosen
 horizon. The volatility freshness rules do not filter reaction-latency events;
 this patch does not supply a full flags/ties/freshness-aware latency engine.
 
-## Setup and offline verification
+## Standalone setup and offline verification
 
 Use Python 3.12 and the existing pinned requirements:
 
@@ -38,7 +86,7 @@ Use Python 3.12 and the existing pinned requirements:
 python -m venv .venv
 # Activate .venv using your platform's normal activation command.
 python -m pip install -r requirements.txt
-python -m pytest
+python -m pytest tests
 python analyze.py --synthetic --clock both
 python analyze.py --synthetic --clock both --event-support complete --out outputs/synthetic_complete
 ```

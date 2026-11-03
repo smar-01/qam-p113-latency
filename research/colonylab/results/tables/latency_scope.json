@@ -1,0 +1,54 @@
+{
+  "status": "completed",
+  "primary_scope": {
+    "study": "fresh_confirmation",
+    "phase": "held_out",
+    "dates": 20,
+    "horizon_ms": 10,
+    "quote_maximum_age_ms": 250
+  },
+  "scope": {
+    "source_requests": 370,
+    "raw_records": 69742145,
+    "dates": 50,
+    "studies": [
+      {
+        "name": "fresh_confirmation",
+        "dates": 40,
+        "venues": 8,
+        "symbols": [
+          "AAPL",
+          "MSFT",
+          "SPY"
+        ],
+        "minutes_per_date": 30
+      },
+      {
+        "name": "wide_network",
+        "dates": 10,
+        "venues": 5,
+        "symbols": [
+          "AAPL",
+          "MSFT",
+          "SPY"
+        ],
+        "minutes_per_date": 10
+      }
+    ],
+    "analysis_status": "New exploratory analysis of previously collected and previously studied data; the inherited training/held_out labels do not make this a new preregistered confirmation."
+  },
+  "primary_regime_comparison_available": false,
+  "primary_regime_interpretation": "The primary calm-versus-volatile comparison is unavailable: no directed pair has supported matched calm and volatile medians on all twenty dates. The team's volatile-period finding is neither replicated nor rejected by these data under the quality rules.",
+  "latency_estimate_definition": "For each fully supported directed pair: equal-date mean of twenty daily conditional matched-event medians. The displayed typical value is the median across these pair estimates, never a pooled-event median.",
+  "match_rate_definition": "Event-count-weighted matched / fully observed behind pair-events, pooled across all directed pairs and dates within each stock/clock. Supported-pair-only rates are also retained in JSON.",
+  "limitations": [
+    "Price matching and predictive ordering do not identify causal propagation or pure exchange infrastructure latency.",
+    "Conditional medians omit fully observed events that never reach the price within the horizon; match rates and restricted mean waiting times must accompany them.",
+    "The available MBP-1 windows are thirty minutes on forty dates and ten minutes on ten other dates, not complete trading sessions.",
+    "IEX is absent from these saved MBP-1 studies. No new data is downloaded.",
+    "The hundred-millisecond MBO grid and midpoint-only jump caches cannot recover event-level bid/ask latency and are not substituted for native quotes.",
+    "Feed flags and source hash checks cannot certify unreported upstream completeness; no saved date-level provider-condition catalogue covers these MBP-1 dates.",
+    "Twenty dates contain about four non-overlapping five-session blocks; intervals are approximate. Multiple pairwise intervals are exploratory.",
+    "The 250-millisecond quote-age rule preserves the earlier partial-window MBP network convention; quiet initialized full-stream books can remain valid for longer."
+  ]
+}

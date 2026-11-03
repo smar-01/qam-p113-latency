@@ -1,0 +1,8 @@
+# First small, reproducible request. UTC times correspond to 10:00–10:10 New York.
+dataset = "EQUS.MINI"
+schema = "mbp-1"
+symbols = ["AAPL"]
+start = "2026-10-23T14:00:00Z"
+end = "2026-10-23T14:10:00Z"
+limit = 100000
+

@@ -1,0 +1,61 @@
+{
+  "experiment": "receive-clock signed quote-shock venue association pilot",
+  "training_days": [
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09"
+  ],
+  "held_out_days": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16"
+  ],
+  "analysis_clock": "ts_recv",
+  "venues": [
+    "ARCX.PILLAR",
+    "BATS.PITCH",
+    "EDGX.PITCH",
+    "XNAS.ITCH",
+    "XNYS.PILLAR"
+  ],
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "SPY"
+  ],
+  "quote_groups": 150,
+  "shock_events": 201551,
+  "horizons_ms": [
+    10,
+    100,
+    1000
+  ],
+  "min_lead_ms": 2,
+  "max_quote_age_ms": 250,
+  "source_min_separation_ms": 100,
+  "held_out_100ms": {
+    "matched_edge_event_count": 283888,
+    "hits": 59184,
+    "placebo_mean_hits": 70721.0,
+    "response_probability": 0.20847658231415206,
+    "placebo_response_probability": 0.24911584850363525,
+    "excess_probability_pp": -4.063926618948318
+  },
+  "threshold_rule": "Per venue/symbol max($0.005, training-only 75th percentile absolute nonzero adjacent midpoint jump).",
+  "matching_rule": "Each edge/horizon uses the same source events eligible at observed and all three shifted trigger times; no circular wrapping.",
+  "limitations": [
+    "Temporal association is not causal influence, participant identity, an SIR rate, or an estimated Hawkes model.",
+    "Receive-clock ordering includes venue/feed transport delay; reported reaction delays are observed co-occurrence delays, not infrastructure latencies.",
+    "Shared market information, correlated order flow and omitted venues can explain associations.",
+    "A limited collection of intraday windows does not establish generalization across market regimes.",
+    "Source de-duplication reduces overlap but events remain dependent; no independent-event significance tests or causal p-values are reported.",
+    "Source and target shocks are each de-duplicated for 100 ms. A synchronous target shock in the excluded first 2 ms can consume its refractory period and suppress a later qualifying hit; negative excess response is not evidence that a venue inhibits another venue.",
+    "Markouts describe target midpoint movement from strictly before the source trigger; early movements inside the excluded clock band remain in markouts.",
+    "MBO action counts describe observed deltas only; no queues or full-depth liquidity have been reconstructed.",
+    "Public volume, maker opportunity and retail improvement are not predictors in this pilot; later integration requires publication-aware alignment."
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "status": "ok",
+  "primary_metric": "pooled_log_loss",
+  "delta_sign": "Positive reference-minus-volume loss means volume candles improve the network.",
+  "resampling_unit": "One complete date containing all scored stocks and venues together.",
+  "minimum_confirmation_days": 20,
+  "observed_day_count": 20,
+  "expected_day_count": 20,
+  "coverage_errors": [],
+  "supports_positive_incremental_prediction": false,
+  "limitations": [
+    "Dependent bins are not independent experiments; no independent-bin p-values are computed.",
+    "Twenty dates contain only about four non-overlapping five-session blocks; intervals remain approximate.",
+    "The moving-block interval uses overlapping consecutive sessions without wrapping; finite-sample edge weighting and regime changes can affect it.",
+    "Results are conditional on the frozen model, the observed coverage cohort and sampled intraday window.",
+    "Predictive loss improvement establishes neither causal impact nor trading profitability."
+  ],
+  "days": [
+    "2026-08-31",
+    "2026-09-01",
+    "2026-09-02",
+    "2026-09-03",
+    "2026-09-04",
+    "2026-09-08",
+    "2026-09-09",
+    "2026-09-10",
+    "2026-09-11",
+    "2026-09-14",
+    "2026-09-15",
+    "2026-09-16",
+    "2026-09-17",
+    "2026-09-18",
+    "2026-09-21",
+    "2026-09-22",
+    "2026-09-23",
+    "2026-09-24",
+    "2026-09-25",
+    "2026-09-28"
+  ],
+  "pooled": {
+    "rows": 594354,
+    "log_loss": {
+      "reference": 0.07476459910352094,
+      "volume": 0.07564119665000754,
+      "absolute_gain": -0.0008765975464866035,
+      "relative_gain_percent": -1.172476756376162
+    },
+    "brier": {
+      "reference": 0.015568659033049532,
+      "volume": 0.015662854614055803,
+      "absolute_gain": -9.41955810062702e-05,
+      "relative_gain_percent": -0.6050333609741821
+    }
+  },
+  "positive_log_loss_days": 0,
+  "negative_log_loss_days": 20,
+  "positive_brier_days": 1,
+  "negative_brier_days": 19,
+  "paired_day_bootstrap": {
+    "method": "paired_session_bootstrap",
+    "replicates": 10000,
+    "seed": 20261026,
+    "requested_block_sessions": 1,
+    "effective_block_sessions": 1,
+    "sessions_per_replicate": 20,
+    "blocks_per_replicate": 20,
+    "wraps_date_range": false,
+    "confidence_level": 0.95,
+    "log_loss": {
+      "absolute_gain_ci95": [
+        -0.0011483532111389559,
+        -0.0006501853708287717
+      ],
+      "relative_gain_percent_ci95": [
+        -1.50556817818686,
+        -0.8769889142491417
+      ]
+    },
+    "brier": {
+      "absolute_gain_ci95": [
+        -0.00013969850653446325,
+        -5.8246080684414944e-05
+      ],
+      "relative_gain_percent_ci95": [
+        -0.8800063004397075,
+        -0.3719837484326749
+      ]
+    }
+  },
+  "five_session_block_bootstrap": {
+    "method": "paired_moving_session_block_bootstrap",
+    "replicates": 10000,
+    "seed": 20261027,
+    "requested_block_sessions": 5,
+    "effective_block_sessions": 5,
+    "sessions_per_replicate": 20,
+    "blocks_per_replicate": 4,
+    "wraps_date_range": false,
+    "confidence_level": 0.95,
+    "log_loss": {
+      "absolute_gain_ci95": [
+        -0.001158228470680345,
+        -0.0006430614701596962
+      ],
+      "relative_gain_percent_ci95": [
+        -1.5054680279788941,
+        -0.8775413156189689
+      ]
+    },
+    "brier": {
+      "absolute_gain_ci95": [
+        -0.00014213954404321342,
+        -5.2999741854769576e-05
+      ],
+      "relative_gain_percent_ci95": [
+        -0.9246430165433509,
+        -0.3475267412242797
+      ]
+    }
+  },
+  "positive_block_interval": false,
+  "evidence_rule": "At least twenty complete intended dates, positive pooled gain and a positive lower 95% bound for paired five-session-block log-loss gain; no practical-profit threshold is asserted.",
+  "source_rows": 64753218,
+  "requests": 320,
+  "anchor_step_ms": 100,
+  "label_horizon_ms": 10,
+  "source_clock": "ts_recv",
+  "missing_task_days": [],
+  "nonconverged_models": [],
+  "coverage": {
+    "candidate_bins": 8607736,
+    "quote_eligible_bins": 1466872,
+    "paired_bins": 594354
+  },
+  "interpretation": "Predictive association only. No maker identities, causal venue influence, execution profitability or full-day generalization is established."
+}

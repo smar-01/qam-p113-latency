@@ -1,0 +1,31 @@
+analysis_scope,event_type,session,clock,age_ms,horizon_ms,metric,contrast,status,n_events_expected,n_events,n_events_excluded,n_bundles_expected,n_bundles,n_years_expected,n_years,years,median_excess_change,excess_change_q25,excess_change_q75,excess_change_min,excess_change_max,leave_one_year_out_min,leave_one_year_out_max
+historical_primary,earnings_release,afterhours,ts_recv,250,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_release,afterhours,ts_recv,1000,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_release,afterhours,ts_recv,5000,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_release,afterhours,ts_event,250,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_release,afterhours,ts_event,1000,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_release,afterhours,ts_event,5000,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_call,afterhours,ts_recv,250,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_call,afterhours,ts_recv,1000,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_call,afterhours,ts_recv,5000,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_call,afterhours,ts_event,250,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_call,afterhours,ts_event,1000,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,earnings_call,afterhours,ts_event,5000,10,latency_us,primary30,insufficient_support,10,0,10,10,0,5,0,[],,,,,,,
+historical_primary,wwdc,RTH,ts_recv,250,10,latency_us,primary30,insufficient_support,4,0,4,4,0,4,0,[],,,,,,,
+historical_primary,wwdc,RTH,ts_recv,1000,10,latency_us,primary30,incomplete_support,4,2,2,4,2,4,2,"[2022, 2023]",10.663395833333368,8.674531250000015,12.65226041666672,6.685666666666663,14.641125000000072,6.685666666666663,14.641125000000072
+historical_primary,wwdc,RTH,ts_recv,5000,10,latency_us,primary30,complete,4,4,0,4,4,4,4,"[2022, 2023, 2024, 2025]",10.9579375,6.407052083333326,19.89858333333336,5.498583333333443,33.97633333333329,6.709874999999954,15.206000000000046
+historical_primary,wwdc,RTH,ts_event,250,10,latency_us,primary30,insufficient_support,4,0,4,4,0,4,0,[],,,,,,,
+historical_primary,wwdc,RTH,ts_event,1000,10,latency_us,primary30,incomplete_support,4,2,2,4,2,4,2,"[2022, 2023]",6.7683333333333024,6.502562499999961,7.034104166666644,6.236791666666619,7.299874999999986,6.236791666666619,7.299874999999986
+historical_primary,wwdc,RTH,ts_event,5000,10,latency_us,primary30,complete,4,4,0,4,4,4,4,"[2022, 2023, 2024, 2025]",6.893374999999978,5.104895833333281,12.215552083333314,1.6619583333331889,26.259583333333325,6.2525416666666445,7.534208333333311
+historical_primary,product_launch,RTH,ts_recv,250,10,latency_us,primary30,insufficient_support,3,0,3,3,0,3,0,[],,,,,,,
+historical_primary,product_launch,RTH,ts_recv,1000,10,latency_us,primary30,insufficient_support,3,0,3,3,0,3,0,[],,,,,,,
+historical_primary,product_launch,RTH,ts_recv,5000,10,latency_us,primary30,complete,3,3,0,3,3,3,3,"[2024, 2025, 2026]",-29.23316666666662,-39.222604166666585,-5.6478958333333225,-49.21204166666655,17.937374999999975,-39.222604166666585,-5.6478958333333225
+historical_primary,product_launch,RTH,ts_event,250,10,latency_us,primary30,insufficient_support,3,0,3,3,0,3,0,[],,,,,,,
+historical_primary,product_launch,RTH,ts_event,1000,10,latency_us,primary30,insufficient_support,3,0,3,3,0,3,0,[],,,,,,,
+historical_primary,product_launch,RTH,ts_event,5000,10,latency_us,primary30,complete,3,3,0,3,3,3,3,"[2024, 2025, 2026]",11.15125000000006,2.3678958333333924,11.795541666666722,-6.415458333333277,12.439833333333382,2.3678958333333924,11.795541666666722
+discovery,wwdc,RTH,ts_recv,250,10,latency_us,primary30,insufficient_support,1,0,1,1,0,1,0,[],,,,,,,
+discovery,wwdc,RTH,ts_recv,1000,10,latency_us,primary30,insufficient_support,1,0,1,1,0,1,0,[],,,,,,,
+discovery,wwdc,RTH,ts_recv,5000,10,latency_us,primary30,complete,1,1,0,1,1,1,1,[2026],74.33654166666668,74.33654166666668,74.33654166666668,74.33654166666668,74.33654166666668,,
+discovery,wwdc,RTH,ts_event,250,10,latency_us,primary30,insufficient_support,1,0,1,1,0,1,0,[],,,,,,,
+discovery,wwdc,RTH,ts_event,1000,10,latency_us,primary30,insufficient_support,1,0,1,1,0,1,0,[],,,,,,,
+discovery,wwdc,RTH,ts_event,5000,10,latency_us,primary30,complete,1,1,0,1,1,1,1,[2026],52.77050000000003,52.77050000000003,52.77050000000003,52.77050000000003,52.77050000000003,,

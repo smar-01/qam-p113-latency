@@ -1,0 +1,62 @@
+{
+  "experiment": "matched completed volume-candle versus time-candle predictor comparison",
+  "training_days": [
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09"
+  ],
+  "held_out_days": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16"
+  ],
+  "volume_target_seconds": 1.0,
+  "time_candle_seconds": 1.0,
+  "max_candle_age_ms": 10000,
+  "forecast_bin_ms": 10,
+  "target": "Unchanged next-10-ms frozen-threshold quote-shock label from the wider study.",
+  "reference": "Original network shock-history predictors, refitted on the common candle-observable rows.",
+  "candle_features": "Nine matched completed-candle features on every same-stock venue: return, range, volume/quantum, trade count, duration, signed fraction, unknown fraction, VWAP/close difference and age.",
+  "volume_rule": "Per venue/stock shares = rounded training trade volume / full requested training seconds, times target_seconds; whole timestamp groups may overshoot; incomplete tails excluded.",
+  "availability": "Time candle [start,end) is available at end<=t; volume candle includes its closing print and requires close<t. All predictor trades strictly precede t.",
+  "matching": "All three models use identical eligible rows, labels and training-only scalers; fixed L2 C=1, no tuning.",
+  "delta_sign": "Positive time-minus-volume loss favors volume candles.",
+  "pooled": {
+    "test_rows": 2513892,
+    "test_positive_bins": 62817,
+    "reference": {
+      "log_loss": 0.10072308553641424,
+      "brier": 0.023126927760506497,
+      "average_precision": 0.11755434025274772,
+      "roc_auc": 0.7920960148996418
+    },
+    "time": {
+      "log_loss": 0.1009292739090379,
+      "brier": 0.02314363307294962,
+      "average_precision": 0.11680367420405603,
+      "roc_auc": 0.7906330051497445
+    },
+    "volume": {
+      "log_loss": 0.10068041149094754,
+      "brier": 0.023104806177576463,
+      "average_precision": 0.1192735966508201,
+      "roc_auc": 0.7921122677434123
+    },
+    "delta_reference_vs_time_log_loss": -0.00020618837262366407,
+    "delta_reference_vs_volume_log_loss": 4.26740454666924e-05,
+    "delta_time_vs_volume_log_loss": 0.0002488624180903565,
+    "delta_time_vs_volume_brier": 3.882689537315631e-05
+  },
+  "limitations": [
+    "Exploratory reuse of five previously inspected test dates; fresh-date confirmation is still needed.",
+    "The forecasting clock stays at 10 ms; this tests candle representations, not a change to volume-event prediction targets.",
+    "Bars from different venues are asynchronous; quote and candle coverage select active observable periods.",
+    "Whole-print bars have volume overshoot and can close immediately on large trades; no synthetic split prints are created.",
+    "Dependent bins and market factors prevent independent-bin significance or causal impact claims.",
+    "Participant identities, maker opportunity and RPI reports are not used as predictors."
+  ]
+}

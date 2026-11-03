@@ -7,3 +7,7 @@ __pycache__/
 *.dbn
 *.dbn.zst
 *.parquet
+.venv/
+.tmp/
+out/
+*.egg-info/
